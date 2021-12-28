@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        header{
+            height: 50px;
+            background-color: wheat;
+        }
+        nav{
+            width: 25%;
+            height: 60vh;
+            float: left;
+            background-color: rgb(197,230,224);
+        }
+        main{
+            background-color: rgb(100,150,255);
+            width: 50%;
+            height: 60vh;
+            float: left;
+        }
+        aside{
+            background-color: rgb(250,200,150);
+            width: 25%;
+            float: left;
+            height: 60vh;
+        }
+        footer{
+            background-color: rgb(200,230,141);
+            clear:both;
+            height: 15vh;
+            text-align: center;                        
+        }
+        p{
+            margin: 25px 15px 25px 15px;
+        }     
+         .p1{
+             padding-top: 20px;    
+         }   
+        
+        header>ul{
+            list-style-type: none;
+        }
+        header>ul>li{
+            display: inline-block;
+            width: 20%;
+            margin: 20px 5px 15px;
+        }
+        .menu{
+            font-size :.9em;
+            padding-left: 15px;
+           
+            margin-top: 30px;
+        }
+        .content1{
+            padding-bottom: 20px;
+            background-color: rgb(255,250,250);
+            margin-bottom: 10px;
+            width: 80%;
+            
+        }
+        a{
+            text-decoration : none;
+        }
+        aside>ul{
+            list-style-type: none;
+            margin-bottom: 10px;
+            
+        }
+        aside>ul>li{
+            color: indianred;
+            margin-bottom: 5px;
+            margin-bottom: 25px;
+        }
+        table {
+            border-top: 2px solid black;
+            border-collapse: collapse;
+            width: 90%;
+            margin: 50px;           
+
+        }
+        th,td{
+            line-height: 2em;
+            border-bottom: 1.5px solid black;
+            padding : 0 6px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        button{
+           
+            margin-left: 85%; 
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+       <ul>
+           <li>Home</li>
+           <li>게시판</li>
+           <li>FAQ</li>
+           <li>로그인</li>
+       </ul>
+    </header>
+    <nav>
+        <div class="menu">
+            <div class="content1"><a href = "#">게시판 카테고리</a></div>
+            <div class="content1"><a href = "#">자유게시판</a></div>
+            <div class="content1"><a href = "#">리뷰게시판</a></div>
+            <div class="content1"><a href = "#">네이버 동영상게시판</a></div>
+            <div class="content1"><a href = "#">자료실 게시판</a></div>
+        </div>
+    </nav>
+    <main>
+        <table>
+            <caption>자유 게시판</caption>
+            <thead>
+                <tr class="name">
+                    <th >NO</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>작성시간</th>
+                    <th>좋아요</th>
+                </tr>
+    
+                <tr>
+                    <th>10</th>
+                    <th class="content">너무 졸려요</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-29</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>9</th>
+                    <th class="content">아이고 뼈시리다</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-28</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <th class="content">집가고싶다</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">217-11-27</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <th class="content">31일 휴강!</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-26</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <th class="content">잠온다</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-25</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <th class="content">1월 3일 휴강</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-24</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th class="content">오늘 저녁메뉴 추천</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-23</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th class="content">놀러가고싶어요</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-22</th>
+                    <th class="wr">0</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th class="content">라고 집순이가 말했습니다</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-21</th>
+                    <th class="wr">0</th>
+                </tr>
+                
+                <tr>
+                    <th>1</th>
+                    <th class="content">내침대최고</th>
+                    <th class="wr">아임웹</th>
+                    <th class="wr">2017-11-20</th>
+                    <th class="wr">0</th>
+                </tr>
+            </thead>
+            
+        </table>
+        <button>글쓰기</button>
+    </main>
+    <aside>
+        <h4>디자인 모드</h4>
+      <ul> 
+          <li class="di">빠른 시작 가이드</li>
+          <li class="di">디자인 모드란</li>
+          <li class="di">아이엠 페이지 구조</li>
+          <li class="di">공통 디자인 등록</li>
+      </ul>
+    </aside>
+    <footer>
+       <p class="p1">상호명 : (주)아이웹 | 대표이사 : 이수만</p>
+       <p>본사 : 서울 특별시 서대문구 어딘가</p>
+       <p>고객지원 : 문의게시판 또는 실시간채팅</p>
+    </footer>
+</body>
+
+</html>
