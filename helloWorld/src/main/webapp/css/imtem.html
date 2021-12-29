@@ -1,159 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>/css/item.html</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;;
+            box-sizing: border-box;
+            
+            /* border: 1px solid blue; */
         }
-        .container{
+
+        .container {
             width: 1200px;
             margin: 20px auto;
+            padding-top: 30px;
+            padding-left: 45px;
         }
-        .image{
+
+        .top {
+            margin-bottom: 10px;
+        }
+
+        .new_item {
+            padding: 3px;
+            width: 150px;
+            border-color: aliceblue;
+        }
+
+        .image {
             float: left;
-            width:20%;
+            width: 40%;
+            position: relative;
+            top: 20px;
         }
-        .info{
+
+        .info {
             float: left;
             width: 50%;
             padding-bottom: 15px;
+            border-bottom: 2px solid black;
+        }
+
+        .item {
+            padding: 20px 5px;
+        }
+
+        .item_name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
             border-bottom: 1px solid black;
         }
-        .title{
+
+        .share {
+            margin-left: 40px;
+            position: relative;
+            top: -5px;
+            padding: 2px 5px;
+            color: rgb(112, 111, 111)
+        }
+
+        .title {
             width: 20%;
             font-weight: bold;
-            padding : 5px
+            padding: 5px
         }
-        .comments{
+
+        .comments {
             width: 75%;
-            float: left;
+
         }
-        .option_price{
+
+        .option_price {
             width: 100%;
-            color : white;
+            color: rgb(144, 144, 144);
             padding: 5px 10px;
-            
+
         }
-        .item_name{
+
+        .item_name {
             font-size: 1.5em;
             font-weight: bold;
         }
-        .login{
-            margin: 30px;
+
+        .login {
             float: right;
             width: 45%;
         }
-        button{
+
+        button {
             width: 50%;
             height: 30px;
-            color : white;
+            color: white;
             background-color: black;
-            font-size: xx-large;
+            font-size: large;
             position: relative;
             top: 30px;
         }
 
+        .left {
+            position: fixed;
+            left: 10px;
+            top: 20px;
+        }
 
+        .right {
+            position: fixed;
+            right: 40px;
+            top: 20px;
+        }
     </style>
 
 </head>
+
 <body>
-    <div class = "container">
-        <div class="left"></div>
+    <div class="container">
+        <div class="left"><img src="../imgs/left.PNG" alt=""></div>
+        <div class="right"><img src="../imgs/right.PNG" alt=""></div>
+
         <div class="top">
-            <p >홈 <select name="" id="">
-                <option value="">신상품</option>
-                <option value="">특가품</option>
-                <option value="">모자</option>
-                <option value="">베스트셀러</option>
-            </select></p>
+            <p>홈 <select class="new_item">
+                    <option value="">신상품</option>
+                    <option value="">특가품</option>
+                    <option value="">모자</option>
+                    <option value="">베스트셀러</option>
+                </select></p>
         </div>
         <div class="image">
-            <div class= "mid"><img src="../imgs/bearcap.PNG" alt=""></div>            
+            <div class="mid"><img src="../imgs/bearcap.PNG" alt=""></div>
             <div class="bottom"><img src="../imgs/bearcap bottom.PNG" alt=""></div>
         </div>
         <div class="info">
             <div class="item">
-            <div class="item_name">CM 곰돌이 후드넥마스크 워머 성인아동 커플
-                </div>
-            <div class="item">
-                <span class="title">판매가</span>
-                <span class="comments"></span>
-            </div>
-            <div class="item">
-                <span class="title">구매제한</span>
-                <span class="comments">최소 1개</span>
-            </div>
-            <div class="item">
-                <span class="title">배송비</span>
-                <span class="comments"> 2500원 <br >택배 / 주문시 결제(선결제 </span>
-            </div>
-            <div class="item">
-                <span class="title">상품코드</span>
-                <span class="comments">0000090312</span>
-            </div>
-            <div class="item">
-                <span class="title">브랜드</span>
-                <span class="comments">MILLITAGE</span>
-            </div>
-            <div class="item">
-                <span class="title">원산지</span>
-                <span class="comments">maid in china</span>
-            </div>
-            <div class="item">
-                <span class="title">샘플가격</span>
-                <span class="comments">샘플(1개 구매가능)</span>
-            </div>
-            <div class="item">
-                <span class="title">결제수단</span>
-                <span class="comments">무통장 입금,신용카드,실시간 계좌이체</span>
-            </div>
-            <div class="item">
-                <span class="title">VAT</span>
-                <span class="comments">10% 별도</span>
-            </div>
-            <div class="item">
-                <span class="title">색상(color)</span>
-                <span class="comments">
-                    <select name="" id="">
-                        <option value="">= 옵션 : 가격 =</option>
+                <div class="item_name">CM 곰돌이 후드넥마스크 워머 성인아동 커플
+                    <select class="share">
+                        <option value="">공유</option>
                     </select>
-                </span>
+                </div>
+                <div class="item">
+                    <span class="title">판매가</span>
+                    <span class="comments">15,000원</span>
+                </div>
+                <div class="item">
+                    <span class="title">구매제한</span>
+                    <span class="comments">최소 1개</span>
+                </div>
+                <div class="item">
+                    <span class="title">배송비</span>
+                    <span class="comments"> 2500원 <br>택배 / 주문시 결제(선결제 </span>
+                </div>
+                <div class="item">
+                    <span class="title">상품코드</span>
+                    <span class="comments">0000090312</span>
+                </div>
+                <div class="item">
+                    <span class="title">브랜드</span>
+                    <span class="comments">MILLITAGE</span>
+                </div>
+                <div class="item">
+                    <span class="title">원산지</span>
+                    <span class="comments">maid in china</span>
+                </div>
+                <div class="item">
+                    <span class="title">샘플가격</span>
+                    <span class="comments">샘플(1개 구매가능)</span>
+                </div>
+                <div class="item">
+                    <span class="title">결제수단</span>
+                    <span class="comments">무통장 입금,신용카드,실시간 계좌이체</span>
+                </div>
+                <div class="item">
+                    <span class="title">VAT</span>
+                    <span class="comments">10% 별도</span>
+                </div>
+                <div class="item">
+                    <span class="title">색상(color)</span>
+                    <span class="comments">
+                        <select class="option_price">
+                            <option value="">= 옵션 : 가격 =</option>
+                            <option value="">블랙 : 15000원</option>
+                            <option value="">블루 : 15000원</option>
+                            <option value="">레드 : 15000원</option>
+                        </select>
+                    </span>
+                </div>
             </div>
             <div class="login">
                 <button>로그인 후 구매</button>
-            </div>
+
             </div>
         </div>
+        
     </div>
 
-    <!-- <div class="imgs">
-    <img src="../imgs/bearcap.PNG" alt="">
-    </div>
-    <div class="list">
-        <h1>(GK) cm 곰돌이후드넥 마스크워머성인아동커플</h1>
-        <ul class="smalllist">
-            <li><span>판매가</span></li>
-            <li><span>구매제한</span> 최소 1개</li>
-            <li> <span>배송비</span> 2500원<br>
-            택배 / 주문시 결제(선결제)</li>
-            <li><span>상품코드</span>0000090312</li>
-            <li><span>브랜드</span>MILLITAGE</li>
-            <li><span>원산지</span>made in china</li>
-            <li><span>샘플가격</span>샘플(1개 구매가능)
-            </li>
-            <li><span> 결제수단</span>무통장 입금,신용카드,실시간 계좌이체</li>
-            <li><span>VAT</span> 10%별도</li>
-            <li>color</li>
-        </ul>
-        <h2>로그인 후 구매</h2>
-    </div> -->
-    
+
 </body>
+
 </html>
