@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+
+        /* Header/Blog Title */
+        .header {
+            padding: 30px;
+            text-align: center;
+            background: white;
+        }
+
+        .header h1 {
+            font-size: 50px;
+        }
+
+        /* Style the top navigation bar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        /* Style the topnav links */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change color on hover */
+        .topnav a:hover {  /*마우스 올렸을때 반응 하게 만드는 코드*/
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            background-color: #f1f1f1;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: gray;
+            width: 100%;
+            padding: 20px;
+        }
+        .fakeimg1 {
+            background-image: url(../imgs/BestBook.PNG);
+            background-size: contain;
+            background-repeat: no-repeat; 
+            background-position: center;
+            width: 100%;
+            padding: 20px;
+            
+        }
+        .fakeimg2 {
+            background-image: url(../imgs/album.PNG);
+            background-size: contain;
+            background-repeat: no-repeat; 
+            width: 100%;
+            padding: 20px;
+            
+        }
+        .fakeimg3 {
+            background-image: url(../imgs/hous.PNG);
+            background-size: contain;
+            background-repeat: no-repeat; 
+            width: 100%;
+            padding: 20px;
+            
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+        .leftcolumn .card{
+            background :linear-gradient(to bottom left, white, rgb(176, 176, 214), skyblue);
+        }
+        .rightcolumn .card{
+            background: radial-gradient(circle, rgb(228, 192, 198), white);
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+            .topnav a {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>My hobby</h1>
+        
+    </div>
+
+    <div class="topnav">
+        <a href="http://www.kyobobook.co.kr">BOOK</a>
+        <a href="http://melon.com">MUSIC</a>
+        <a href="http://youtube.com">PICTURE</a>
+        <a href="" style="float:right">Link</a>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2>화제의 외국 신간 도서</h2>
+                <h5>교보문고에서 제일 잘나가는 신간도서</h5>
+                <div class="fakeimg1" style="height:200px;"></div>
+                <p>음...</p>
+                <p>시간날때 읽어볼만한 책..?</p>
+            </div>
+            <div class="card">
+                <h2>최신앨범</h2>
+                <h5>최신 발매된 앨범</h5>
+                <div class="fakeimg2" style="height:200px;"></div>
+                <p>Some text..</p>
+                <p>구피(Goopy) Skinny Brown, 지진석, 자이언트핑크. 헬로트로트, 뱀뱀(BamBam)...<br>
+                    등등 많은 아티스트들이 앨범발매</p>
+            </div>
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>저에 대해서...</h2>
+                <div class="fakeimg3" style="height:100px;"></div>
+                <p>이불밖은 위험하기 때문에 침대에서 생활하는 모든것이 취미입니다</p>
+            </div>
+            <div class="card">
+                <h3>좋아하는 유튜브 채널</h3>
+                <div class="fakeimg">
+                    <a href="https://www.youtube.com/c/TiggerASMR">공부 집중 ASMR - Tigger ASMR</a>
+                   
+                </div>
+                <div class="fakeimg">
+                    <a href="https://www.youtube.com/channel/UCkuA_gDjISfGgbdp02BUwyQ">크림히어로즈의 크집사님</a>
+                </div>
+                <div class="fakeimg">
+                    <a href="https://www.youtube.com/c/%EC%82%90%EB%A3%A8%EB%B9%BC%EB%A1%9Cbbiru">삐루빼로</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Follow Me</h3>
+                <p>Some text..</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h2>Footer</h2>
+    </div>
+
+</body>
+
+</html>

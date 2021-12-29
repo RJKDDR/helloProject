@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/selector.html</title>
+    <style>
+        *{
+            /* 전체 선택자 */
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .content{
+            /* 클래스선택자 */
+            width: 50%;
+            float: left;
+        }
+        #row{
+            /* 아이디 선택자 */
+        }
+        h1,
+        p{
+            /* 타입선택자 */
+        }
+        .theme{
+            width: 50%;
+            float: left;
+        }
+        .theme ul{
+            margin-left: 50px;
+            list-style-type: square;
+
+        }
+        .content>ul{
+            list-style-type: circle;
+        }
+        li+ul{
+           
+            background: burlywood;
+        }
+        li~ul{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="theme">
+            <ul >
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Cherry</li>
+                <ul>
+                    <li>car</li>
+                    <li>plane</li>
+                </ul>
+            </ul>
+
+        </div>
+        <div class="content">
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <ul>
+                    <li>car</li>
+                    <li>plane</li>
+                </ul>
+                <li>Cherry</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

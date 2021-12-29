@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/position.html</title>
+    <style>
+        body{
+            border: 1px solid black;
+        }
+        p{
+            border : 1px solid grey
+        }
+        #pos1{
+           width: 400px;
+           position: static;
+
+        }
+        #pos2{
+           width: 450px;
+           position: sticky; /*fixed은 스크롤을 움직이면같이 움직이는 기능/ absolute는 스크롤 해놓아도 원래 위치에 있음/
+           static은 원래 고정자리 top이나 left가 소용이 없음/ sticky 는 살아질때쯤되면 같이 움직임 fixed 랑 비슷한 효과를 가짐 */
+           top : 50px;  
+           
+        }
+        #pos3{
+           width: 370px;
+           position: static;
+           top : 50px;           
+        }
+        #CSS3{
+            position: relative;
+            top : -40px;
+            left: -50px;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>   
+   <p id='pos1'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, 
+    tempora officiis quod ullam mollitia excepturi autem asperiores, 
+    facilis deserunt vitae itaque rem reiciendis? Possimus, quam! Minus,
+     non pariatur. Officiis, consectetur!</p>
+   <p id='pos2'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, 
+    tempora officiis quod ullam mollitia excepturi autem asperiores, 
+    facilis deserunt vitae itaque rem reiciendis? Possimus, quam! Minus,
+     non pariatur. Officiis, consectetur!</p>
+   <p id='pos3'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, 
+    tempora officiis quod ullam mollitia excepturi autem asperiores, 
+    facilis deserunt vitae itaque rem reiciendis? Possimus, quam! Minus,
+     non pariatur. Officiis, consectetur!</p>
+     <img src="../imgs/newyork.png" width="400px" alt="">
+     <span id='CSS3'>CSS3</span>
+</body>
+</html>
