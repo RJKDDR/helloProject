@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/mq.html</title>
+    <style>
+        body{
+            background: url('../imgs/sky3.PNG');
+            background-repeat: no-repeat; 
+        }
+        @media print and(max-width:100px){
+            /* 출력용스타일 */
+
+        }
+
+        @media screen and (max-width:1024px){
+            body{
+                background: url('../imgs/imgs.png');
+                background-repeat: no-repeat; 
+            }
+        }
+        @media screen and (min-width:860px) and(max-width:1024px){
+            body{
+                background: url('../imgs/newyork.png');
+                background-repeat: no-repeat; 
+            }
+        }
+        @media screen and (max-width:860px){
+            body{
+                background: url('../imgs/bear.PNG' );
+                background-repeat: no-repeat; 
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
