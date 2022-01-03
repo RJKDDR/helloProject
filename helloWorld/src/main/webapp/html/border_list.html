@@ -7,22 +7,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css/border_list.html</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
+            /* border: 1px solid red; */
         }
-        .homline{
+
+        .homeline {
             background-color: black;
-            color :white
+            color: white;
+            height: 50px;
         }
-        .name{
+
+        .name {
             float: left;
+            width: 70%;
+            padding: 10px;
         }
-        .lineend{
+
+        .lineend1 {
             float: left;
+            width: 5%;
+            padding: 10px;
         }
-        ul{
+
+        .lineend2 {
+            float: left;
+            color: grey;
+            width: 5%;
+            padding: 10px;
+        }
+
+        .lineend3 {
+            color: grey;
+            padding: 10px;
+        }
+
+        .box {
+            width: 130px;
+            height: 200px;
+            margin: 20px 20px;
+            float: left;
+
+        }
+
+        .box1,
+        .box2 {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+        }
+
+        .box1 {
+            font-size: x-large;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .box2{
+            border : 2px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+        .box2:hover{
+            background-color: skyblue;
+        }
+
+        ul {
             list-style-type: none;
+        }
+        table{
+            margin:2%;
+            padding: 20px;
+            width: 70%;
+            height: 90%;
+            border: 2px solid black;
+        }
+
+        #row{
+            text-align: center;
+            border-bottom: 5px solid red;
+            height: 20px;
+        }
+        #cell{
+            border-bottom: 2px solid gray;
+            height: 30px;
+        }
+        #cell1{
+            text-align: left;
+        }
+        #cell2{
+            text-align: center;
+        }
+
+        
+
+        .button1,
+        .button2 {
+            float: left;
         }
     </style>
 </head>
@@ -30,89 +111,68 @@
 <body>
     <div class="homeline">
         <div class="name">Codevang's Page</div>
-        <div class="lineend">홈</div>
-        <div class="lineend">로그인</div>
-        <div class="lineend">회원정보</div>
+        <div class="lineend1">홈</div>
+        <div class="lineend2">로그인</div>
+        <div class="lineend3">회원정보</div>
     </div>
     <div class="box">
-        <div  class="box1">Category</div>
-        <div  class="box2">게시판</div>
-        <div  class="box2">일반 게시판</div>
-        <div  class="box3">코딩 게시판</div>
+        <div class="box1">Category</div>
+        <div class="box2"><a>게시판</a></div>
+        <div class="box2"><a>일반 게시판</a></div>
+        <div class="box2"><a>코딩 게시판</a></div>
     </div>
-    <div>
-        <ul  class="start">
-            <li class="star">제목</li>
-            <li class="star">글쓴이</li>
-            <li class="star">작성일</li>
-            <li class="star">조회수</li>
+    <table>
+        <tr id="row">
+            <th id="row1">제목</th>
+            <th id="row2">글쓴이</th>
+            <th id="row2">작성일</th>
+            <th id="row2">조회수</th>
+        </tr>
+        <tr id="cell">
+            <td id="cell1">안녕하세요</td>
+            <td id="cell2">codevang</td>
+            <td id="cell2">2020/03/02 11:03:47</td>
+            <td id="cell2">0</td>
+        </tr>
+        <tr id="cell">
+            <td id="cell1">ㅇㅇㅇ</td>
+            <td id="cell2">codevang</td>
+            <td id="cell2">2020/03/01 23:40:01</td>
+            <td id="cell2">1</td>
+        </tr>
+        <tr id="cell">
+            <td id="cell1">이제되겠지!!</td>
+            <td id="cell2">codevang</td>
+            <td id="cell2">2020/03/01 23:38:40</td>
+            <td id="cell2">2</td>
+        </tr>
+        <tr id="cell">
+            <td id="cell1"> ㄴre : 답글을 써보자</td>
+            <td id="cell2">codevang</td>
+            <td id="cell2">2020/03/01 11:04:01</td>
+            <td id="cell2">2</td>
+        </tr>
+        <tr id="cell">
+            <td id="cell1">다시</td>
+            <td id="cell2">codevang</td>
+            <td id="cell2">2020/03/01 23:22:07</td>
+            <td id="cell2">1</td>
+        </tr>
+        <tr id="cell">
+            <td id="cell1"> ㄴrs:안뇽안뇽</td>
+            <td id="cell2">codevang</td>
+            <td id="cell2">2020/03/01 23:22:07</td>
+            <td id="cell2">1</td>
+        </tr>
+        
+    </table>
+    <div id="button">
+        <ul class="button">
+            <li class="button1"><a href="">1</a></li>
+            <li class="button2"><a href="">2</a></li>
+            <li class="button3"><a href="">3</a></li>
         </ul>
-        <ul class="list">
-            <li class="1">안녕하세요</li>
-            <li>codevang</li>
-            <li>2020/03/02 11:03:47</li>
-            <li>0</li>
-        </ul>
-        <ul class="list">
-            <li class="1">ㅇㅇㅇ</li>
-            <li class="2">codevang</li>
-            <li class="3">2020/03/01 23:40:01</li>
-            <li class="4">1</li>
-        </ul>
-        <ul class="list">
-            <li class="1">이제되겠지!!</li>
-            <li class="2">codevang</li>
-            <li class="3">2020/03/01 23:38:40</li>
-            <li class="4">2</li>
-        </ul>
-        <ul class="list">
-            <li class="1">re : 답글을 써보자</li>
-            <li class="2">codevang</li>
-            <li class="3">2020/03/01 11:04:01</li>
-            <li class="4">2</li>
-        </ul>
-        <ul class="list">
-            <li class="1">다시</li>
-            <li class="2">codevang</li>
-            <li class="3">2020/03/01 23:22:07</li>
-            <li class="4">1</li>
-        </ul>
-        <ul class="list">
-            <li class="1">rs:안뇽안뇽</li>
-            <li class="2">codevang</li>
-            <li class="3">2020/03/01 23:22:07</li>
-            <li class="4">1</li>
-        </ul>
-        <!-- <ul >
-            <li> re:나도 안뇽</li>
-            <li>codevang</li>
-            <li>2020/03/01 23:22:07</li>
-            <li>0</li>
-        </ul>
-        <ul>
-            <li>re : 잘지내뉴 </li>
-            <li>codevang</li>
-            <li>2020/03/01 23:22:07</li>
-            <li>0</li>
-        </ul>
-        <ul>
-            <li>잘되는지 확인해보자</li>
-            <li>codevang</li>
-            <li>2020/03/01 23:22:07</li>
-            <li>3</li>
-        </ul>
-        <ul>
-            <li>re : 여기도 잘됩니까!</li>
-            <li>codevang</li>
-            <li>2020/03/01 11:04:52</li>
-            <li>0</li>
-        </ul>
-        <ul> -->
-        <li><a href="">1</a></li>
-        <li><a href="">2</a></li>
-        <li><a href="">3</a></li>
-        </ul>
-        <button><a href="../html/border_register.html"> 새 글쓰기</a></button>
+        <button class=""><a href="../html/border_register.html"> 새 글쓰기</a></button>
     </div>
 
 

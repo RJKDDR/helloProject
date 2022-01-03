@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* border: 1px solid red; */
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .homeline {
+            background-color: black;
+            color: white;
+            height: 50px;
+        }
+
+        .name {
+            float: left;
+            width: 70%;
+            padding: 10px;
+        }
+
+        .lineend1 {
+            float: left;
+            width: 5%;
+            padding: 10px;
+        }
+
+        .lineend2 {
+            float: left;
+            color: grey;
+            width: 5%;
+            padding: 10px;
+        }
+
+        .lineend3 {
+            color: grey;
+            padding: 10px;
+        }
+
+        .box {
+            width: 130px;
+            height: 200px;
+            margin: 20px 20px;
+            float: left;
+
+        }
+
+        .box1,
+        .box2 {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+        }
+
+        .box1 {
+            font-size: x-large;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .box2 {
+            border: 2px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .box2:hover {
+            background-color: skyblue;
+        }
+
+        .table {
+            display: table;
+            border: 1px solid black;
+            width: 70%;
+            height: auto;
+            margin: 20px;
+            border-bottom: 1px solid gray;
+        }
+
+        .table-row {
+            /* display: table-row; */
+            display: table-header-group;
+            font-weight: bold;
+            border-bottom: 1px solid gray;
+
+        }
+
+        .tablecell {
+            display: table-row-group;
+        }
+
+        .tablecell1 {
+            float: left;
+            width: 50%;
+            height: 40px;
+            text-align: center;
+        }
+
+        .tablecell2,
+        .tablecell3 {
+            float: left;
+            width: 20%;
+            text-align: center;
+
+        }
+
+        .tablecell4 {
+            text-align: center;
+        }
+
+        .tablecell5 {
+            float: left;
+            width: 50%;
+            height: 40px;
+            text-align: left;
+            padding: 1px 0px 1px 0px;
+
+        }
+
+        .tablecell6,
+        .tablecell7 {
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+
+        .tablecell8 {
+            text-align: center;
+        }
+
+        .button1,
+        .button2,
+        .button3 {
+            float: left;
+            padding: 5px 10px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <body>
+        <div class="homeline">
+            <div class="name">Codevang's Page</div>
+            <div class="lineend1">홈</div>
+            <div class="lineend2">로그인</div>
+            <div class="lineend3">회원정보</div>
+        </div>
+        <div class="box">
+            <div class="box1">Category</div>
+            <div class="box2">게시판</div>
+            <div class="box2">일반 게시판</div>
+            <div class="box2">코딩 게시판</div>
+        </div>
+
+        <div class="table">
+            <ul class="table-row">
+                <li class="tablecell1">제목</li>
+                <li class="tablecell2">글쓴이</li>
+                <li class="tablecell3">작성일</li>
+                <li class="tablecell4">조회수</li>
+            </ul>
+            <ul class="tablecell">
+                <li class="tablecell5">안녕하세요</li>
+                <li class="tablecell6">codevang</li>
+                <li class="tablecell7">2020/03/02 11:03:47</li>
+                <li class="tablecell8">0</li>
+            </ul>
+            <ul class="tablecell">
+                <li class="tablecell5">ㅇㅇㅇ</li>
+                <li class="tablecell6">codevang</li>
+                <li class="tablecell7">2020/03/01 23:40:01</li>
+                <li class="tablecell8">1</li>
+            </ul>
+            <ul class="tablecell">
+                <li class="tablecell5">이제되겠지!!</li>
+                <li class="tablecell6">codevang</li>
+                <li class="tablecell7">2020/03/01 23:38:40</li>
+                <li class="tablecell8">2</li>
+            </ul>
+            <ul class="tablecell">
+                <li class="tablecell5"> ㄴre : 답글을 써보자</li>
+                <li class="tablecell6">codevang</li>
+                <li class="tablecell7">2020/03/01 11:04:01</li>
+                <li class="tablecell8">2</li>
+            </ul>
+            <ul class="tablecell">
+                <li class="tablecell5">다시</li>
+                <li class="tablecell6">codevang</li>
+                <li class="tablecell7">2020/03/01 23:22:07</li>
+                <li class="tablecell8">1</li>
+            </ul>
+            <ul class="tablecell">
+                <li class="tablecell5"> ㄴrs:안뇽안뇽</li>
+                <li class="tablecell6">codevang</li>
+                <li class="tablecell7">2020/03/01 23:22:07</li>
+                <li class="tablecell8">1</li>
+            </ul>
+
+            <ul class="button">
+                <li class="button1"><a href="">1</a></li>
+                <li class="button2"><a href="">2</a></li>
+                <li class="button3"><a href="">3</a></li>
+            </ul>
+            <button><a href="../html/border_register.html"> 새 글쓰기</a></button>
+        </div>
+
+    </body>
+
+</html>
