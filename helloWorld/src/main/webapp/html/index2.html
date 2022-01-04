@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html/index.html/</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        /* .box:hover{
+            font-weight: bolder;
+            border: rgb(14, 251, 212);
+            color: rgb(14, 251, 212);
+        } */
+        .box {
+            width: 100%;
+            height: 40%;
+            padding: 40px;
+            border-top: 2px solid rgb(212, 210, 210);
+            border-bottom: 2px solid rgb(212, 210, 210);
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8,
+        .box9 {
+            float: left;
+            width: 10%;
+            height: 20%;
+            padding: 0 5px 5px;
+            text-align: center;
+        }
+
+        .box5 {
+            color: rgb(107, 218, 162);
+            font-weight: bolder;
+            border-bottom: 4px solid rgb(107, 218, 162);
+        }
+
+        .left {
+            float: left;
+            width: 15%;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .a {
+            font-size: 40px;
+            text-align: left;
+            border-bottom: 2px solid rgb(141, 141, 141);
+        }
+
+        .b,
+        .c,
+        .d,
+        .e,
+        .f,
+        .g,
+        .h,
+        .i {
+            border-bottom: 1px solid rgb(231, 230, 230);
+            text-align: left;
+            height: 40px;
+        }
+
+        .table {
+            width: 75%;
+            height: auto;
+            margin: 10px;
+            padding: 10px;
+            border :1px solid black;
+        }
+
+       .th1,
+       .th2,
+       .th3,
+       .th4{
+           float: left;
+           width: auto;
+           height: auto;
+       }
+       .td1,
+       .td2,
+       .td3,
+       .td4,
+       .td5{
+           float: left;
+           width: auto;
+           height: auto;
+       }
+
+
+        caption {
+            font-size: x-large;
+            font-weight: bolder;
+            text-align: left;
+            border-bottom: 2px solid black;
+        }
+        .button1,
+        .button2,
+        .button3,
+        .button4,
+        .button5,
+        .button6,
+        .button7,
+        .button8,
+        .button9,
+        .button10{
+            float: left;
+            width: 20px;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <ul class="box">
+            <li class="box1">감염병</li>
+            <li class="box2">건강정보</li>
+            <li class="box3">정책정보</li>
+            <li class="box4">연구개발</li>
+            <li class="box5">알림·자료</li>
+            <li class="box6">간행물·통계</li>
+            <li class="box7">민원·정보공개</li>
+            <li class="box8">기관소개</li>
+            <li class="box9">사업별 누리집</li>
+        </ul>
+    </div>
+    <div class="left">
+        <div class="a">알림·자료</div>
+        <div class="b">이달의 건강소식</div>
+        <div class="c">보도자료</div>
+        <div class="d">포토뉴스</div>
+        <div class="e">홍보자료</div>
+        <div class="f">공지사항</div>
+        <div class="g">공고/공시</div>
+        <div class="h">채용공고</div>
+        <div class="i">법령·지침·서식</div>
+
+    </div>
+    <div class='table'>
+        <div class="caption">공고/공시</div>
+        <div class="aa">전체 3,320건, 현재 페이지 2/332
+            <select name="name" id="name">
+                <option value="" selected>제목</option>
+            </select>
+            <input type="search" id="search" placeholder="검색어를 입력하세요"> 
+        </div>
+        <div class="thead">
+            <ul class="tr">
+                <li class="th1">번호</li>
+                <li class="th2">제목</li>
+                <li class="th3">작성자</li>
+                <li class="th4">작성일자</li>
+                <li class="th5">조회수</li>
+            </tr>
+        </div>
+        <div class="tbody">
+            <ul class="tr1">
+                <li class="td1">3310</li>
+                <li class="td2">『건강정보 개발 및 국가건강정보포털운영』 2022년 민간위...</li>
+                <li class="td3">만성질환예방과</li>
+                <li class="td4">2021-12-28</li>
+                <li class="td5">137</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3309</li>
+                <li class="td2">국제공인예방접종지정기관 지정공고</li>
+                <li class="td3">질병관리청 검영정책과</li>
+                <li class="td4">2021-12-23</li>
+                <li class="td5">305</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3308</li>
+                <li class="td2">2022년 환전외국환은행 선정결과 공고</li>
+                <li class="td3">백신계약팀</li>
+                <li class="td4">2021-12-23</li>
+                <li class="td5">184</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3307</li>
+                <li class="td2">2021년 질명관리청 정책연구용역(강원도 홍청군과 횡성군...</li>
+                <li class="td3">운영지원과</li>
+                <li class="td4">2021-12-20</li>
+                <li class="td5">378</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3306</li>
+                <li class="td2">2021년 질병관리청 정책연구용역(국민건강영양조사 원시자...</li>
+                <li class="td3">운영지원과</li>
+                <li class="td4">2021-12-17</li>
+                <li class="td5">432</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3305</li>
+                <li class="td2">2021년 질병관리청 건강영양조사 정책연구용역(3건)...</li>
+                <li class="td3">운영지원과</li>
+                <li class="td4">2021-12-14</li>
+                <li class="td5">770</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3304</li>
+                <li class="td2">『제 1차 기후보건영향평가』 공청회 개최 공고</li>
+                <li class="td3">미래질병대비과</li>
+                <li class="td4">2021-12-08</li>
+                <li class="td5">438</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3303</li>
+                <li class="td2">2021년 질병관리청 정책연구용역(인권 관점의 방역체계 구...</li>
+                <li class="td3">운영지원과</li>
+                <li class="td4">2021-12-07</li>
+                <li class="td5">633</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3302</li>
+                <li class="td2">2021년 질병관리청 만성질환 관리과 정책연구용역(4건)입...</li>
+                <li class="td3">운영지원과</li>
+                <li class="td4">2021-12-07</li>
+                <li class="td5">583</li>
+            </ul>
+            <ul class="tr1">
+                <li class="td1">3301</li>
+                <li class="td2">2021년 질병관리청 정책연구용역(404호,405호)입찰공고...</li>
+                <li class="td3">운영지원과</li>
+                <li class="td4">2021-12-06</li>
+                <li class="td5">500</li>
+            </ul>
+        </div>
+    </div>
+        <div>
+            <ul class="button">
+                <li class="button1"><a href="">1</a></li>
+                <li class="button2"><a href="">2</a></li>
+                <li class="button3"><a href="">3</a></li>
+                <li class="button4"><a href="">4</a></li>
+                <li class="button5"><a href="">5</a></li>
+                <li class="button6"><a href="">6</a></li>
+                <li class="button7"><a href="">7</a></li>
+                <li class="button8"><a href="">8</a></li>
+                <li class="button9"><a href="">9</a></li>
+                <li class="button10"><a href="">10</a></li>
+            </ul>
+        </div>
+    
+</body>
+
+</html>

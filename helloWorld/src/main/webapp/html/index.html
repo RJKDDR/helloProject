@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html/index.html/</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        /* .box:hover{
+            font-weight: bolder;
+            border: rgb(14, 251, 212);
+            color: rgb(14, 251, 212);
+        } */
+        .header {
+            width: 100%;
+            height: 40%;
+            padding: 40px;
+            border-top: 2px solid rgb(212, 210, 210);
+            border-bottom: 2px solid rgb(212, 210, 210);
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8,
+        .box9 {
+            float: left;
+            width: 10%;
+            height: 20%;
+            padding: 0 5px 5px;
+            text-align: center;
+        }
+
+        .box5 {
+            color: rgb(107, 218, 162);
+            font-weight: bolder;
+            border-bottom: 4px solid rgb(107, 218, 162);
+        }
+
+        nav {
+            float: left;
+            width: 15%;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: left;
+            
+            padding: 10px;
+        }
+
+        .b,
+        .c,
+        .d,
+        .e,
+        .f,
+        .g,
+        .h,
+        .i {
+            border-bottom: 1px solid rgb(231, 230, 230);
+            
+            line-height: 50px;
+            
+        }
+        nav>div{
+            text-align: left;
+            
+        }
+        .b{
+            border-top: 1px solid rgb(231, 230, 230);
+        }
+
+        .g {
+            background-color: rgb(107, 218, 162);
+            color: white;
+        }
+       
+
+        table {
+            width: 75%;
+            height: auto;
+            margin: 10px;
+            padding: 10px;
+            border-collapse: collapse;
+
+        }
+
+        table>thead>tr>th {
+            text-align: center;
+
+
+        }
+
+        table>tbody>tr>td {
+            text-align: center;
+
+
+
+        }
+
+        th {
+            border-bottom: 0.5px solid rgb(155, 152, 152);
+            border-top: 2px solid black;
+            height: 50px;
+
+        }
+
+        td {
+            border-bottom: 0.5px solid rgb(155, 152, 152);
+            height: 35px;
+        }
+
+        .subject {
+            text-align: left;
+
+        }
+
+
+        h2 {
+            font-size: x-large;
+            font-weight: bolder;
+            text-align: left;
+
+        }
+
+        caption {
+            font-size: small;
+            font-weight: bold;
+            border-top: 2px solid black;
+            text-align: left;
+            padding: 20px 20px;
+        }
+
+        .button1,
+        .button2,
+        .button3,
+        .button4,
+        .button5,
+        .button6,
+        .button7,
+        .button8,
+        .button9,
+        .button10 {
+            float: left;
+            width: 20px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="header">
+            <li class="box1">감염병</li>
+            <li class="box2">건강정보</li>
+            <li class="box3">정책정보</li>
+            <li class="box4">연구개발</li>
+            <li class="box5">알림·자료</li>
+            <li class="box6">간행물·통계</li>
+            <li class="box7">민원·정보공개</li>
+            <li class="box8">기관소개</li>
+            <li class="box9">사업별 누리집</li>
+        </ul>
+    </header>
+    <nav>
+        <h1>알림·자료</h1>
+            <div class="b">이달의 건강소식</div>
+            <div class="c">보도자료</div>
+            <div class="d">포토뉴스</div>
+            <div class="e">홍보자료</div>
+            <div class="f">공지사항</div>
+            <div class="g">공고/공시</div>
+            <div class="h">채용공고</div>
+            <div class="i">법령·지침·서식</div>
+        
+    </nav>
+    <main>
+    <table class='main'>
+        <h2>공고/공시</h2>
+        <caption>전체 3,320건, 현재 페이지 2/332
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <select name="name" id="name">
+                <option value="" selected>제목</option>
+                <option value="">작성자</option>
+            </select>
+            <input type="search" id="search" placeholder="검색어를 입력하세요">
+        </caption>
+        <thead>
+            <tr class="tr">
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일자</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>3310</td>
+                <td class="subject">『건강정보 개발 및 국가건강정보포털운영』 2022년 민간위...</td>
+                <td>만성질환예방과</td>
+                <td>2021-12-28</td>
+                <td>137</td>
+            </tr>
+            <tr>
+                <td>3309</td>
+                <td class="subject">국제공인예방접종지정기관 지정공고</td>
+                <td>질병관리청 검영정책과</td>
+                <td>2021-12-23</td>
+                <td>305</td>
+            </tr>
+            <tr>
+                <td>3308</td>
+                <td class="subject">2022년 환전외국환은행 선정결과 공고</td>
+                <td>백신계약팀</td>
+                <td>2021-12-23</td>
+                <td>184</td>
+            </tr>
+            <tr>
+                <td>3307</td>
+                <td class="subject">2021년 질명관리청 정책연구용역(강원도 홍청군과 횡성군...</td>
+                <td>운영지원과</td>
+                <td>2021-12-20</td>
+                <td>378</td>
+            </tr>
+            <tr>
+                <td>3306</td>
+                <td class="subject">2021년 질병관리청 정책연구용역(국민건강영양조사 원시자...</td>
+                <td>운영지원과</td>
+                <td>2021-12-17</td>
+                <td>432</td>
+            </tr>
+            <tr>
+                <td>3305</td>
+                <td class="subject">2021년 질병관리청 건강영양조사 정책연구용역(3건)...</td>
+                <td>운영지원과</td>
+                <td>2021-12-14</td>
+                <td>770</td>
+            </tr>
+            <tr>
+                <td>3304</td>
+                <td class="subject">『제 1차 기후보건영향평가』 공청회 개최 공고</td>
+                <td>미래질병대비과</td>
+                <td>2021-12-08</td>
+                <td>438</td>
+            </tr>
+            <tr>
+                <td>3303</td>
+                <td class="subject">2021년 질병관리청 정책연구용역(인권 관점의 방역체계 구...</td>
+                <td>운영지원과</td>
+                <td>2021-12-07</td>
+                <td>633</td>
+            </tr>
+            <tr>
+                <td>3302</td>
+                <td class="subject">2021년 질병관리청 만성질환 관리과 정책연구용역(4건)입...</td>
+                <td>운영지원과</td>
+                <td>2021-12-07</td>
+                <td>583</td>
+            </tr>
+            <tr>
+                <td>3301</td>
+                <td class="subject">2021년 질병관리청 정책연구용역(404호,405호)입찰공고...</td>
+                <td>운영지원과</td>
+                <td>2021-12-06</td>
+                <td>500</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <ul class="button">
+            <li class="button1"><a href="">1</a></li>
+            <li class="button2"><a href="">2</a></li>
+            <li class="button3"><a href="">3</a></li>
+            <li class="button4"><a href="">4</a></li>
+            <li class="button5"><a href="">5</a></li>
+            <li class="button6"><a href="">6</a></li>
+            <li class="button7"><a href="">7</a></li>
+            <li class="button8"><a href="">8</a></li>
+            <li class="button9"><a href="">9</a></li>
+            <li class="button10"><a href="">10</a></li>
+        </ul>
+    </div>
+</main>
+</body>
+
+</html>
