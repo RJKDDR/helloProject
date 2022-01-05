@@ -36,10 +36,10 @@ myName = 'Kim';
 // pi=3.1415;
 
 const obj = { //obj 참조영역
-    fullName: 'NamjunKim',
+    fullName: 'NamjunKim', //속성
     birth: '1995-09-12',
     score: 90,
-    showInfo: function () {
+    showInfo: function () { //function ()는 메소드
         return this.fullName + ', ' + this.age;
     },
     showAge: function () {
