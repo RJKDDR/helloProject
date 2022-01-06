@@ -1,74 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript/index.html/</title>
-    <style>
-        /* #tdl>thead>tr{
-            background-color: skyblue;
-        }
-        #tdl>tbody>tr:nth-child(2n){
-            background-color: rgb(233, 233, 173);
-        }
-        #tdl>tbody>tr:nth-child(2n+1){
-            background-color: rgb(238, 172, 172);
-        } */
-        /* table, td{
-            border: 1px solid#ccc;
-            border-collapse: collapse;
-        }
-        td{
-            padding: 5px;
-            font-size: 0.9cm;
-        } smaple1*/
-/* span{
-    display: inline-block;
-    padding: 3px;
-    border: 1px solid gray;
-    margin: 5px;
-    width: 90px;
-    height: 20px;
-    text-align: center;
-} */
-span:not(:empty){
-    display: inline-block;
-    padding: 3px;
-    border:1px solid grey;
-    margin: 5px;
-    width: 40px;
-    text-align: center;
-}
-span:empty{
-    display: inline-block;
-    padding: 3px;
-    margin: 5px 6px;
-    width: 40px;
-    
-}
-.sunday{
-    background-color: rgb(246, 125, 125);
-    color: white;
-}
-.sat{
-    background-color: rgb(129, 129, 202);
-    color : white;
-}
-    </style>
+
     <script>
-        console.log('hello, world!');
-        document.write('<h3>hello,world</h3>');
+        // console.log('hello, world!');
+        // document.write('<h3>hello,world</h3>');
         // window.alert('hello,world');
     </script>
     <!-- <script src="calendar.js"></script> -->
+
+    <style>
+        div:not(#show) {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            color: yellow;
+            border: 1px solid gray;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
 </head>
+
 <body>
     <div id="show"></div>
-    <script src="string1.js"></script>
-    <script>
+
+    
+    <ul>
+        <li>23</li>
+        <li>17</li>
+        <li>33</li>
+        <li>72</li>
+        <li>88</li>
+    </ul>
+    <ul>
+        <li>23</li>
+        <li>17</li>
+        <li>33</li>
+        <li>72</li>
+        <li>88</li>
+    </ul>
+    <script src="array1.js"></script>
+
+    <!-- <script>
         // document.querySelector('h3').innerHTML = 'Nice, World';
         // document.querySelector('h3').style.background = 'blue';
-    </script>
+    </script> -->
+
 </body>
+
 </html>

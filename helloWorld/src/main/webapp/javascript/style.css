@@ -1,0 +1,49 @@
+ /* #tdl>thead>tr{
+            background-color: skyblue;
+        }
+        #tdl>tbody>tr:nth-child(2n){
+            background-color: rgb(233, 233, 173);
+        }
+        #tdl>tbody>tr:nth-child(2n+1){
+            background-color: rgb(238, 172, 172);
+        } */
+        /* table, td{
+            border: 1px solid#ccc;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 5px;
+            font-size: 0.9cm;
+        } smaple1*/
+/* span{
+    display: inline-block;
+    padding: 3px;
+    border: 1px solid gray;
+    margin: 5px;
+    width: 90px;
+    height: 20px;
+    text-align: center;
+} */
+span:not(:empty){
+    display: inline-block;
+    padding: 3px;
+    border:1px solid grey;
+    margin: 5px;
+    width: 40px;
+    text-align: center;
+}
+span:empty{
+    display: inline-block;
+    padding: 3px;
+    margin: 5px 6px;
+    width: 40px;
+    
+}
+.sunday{
+    background-color: rgb(246, 125, 125);
+    color: white;
+}
+.sat{
+    background-color: rgb(129, 129, 202);
+    color : white;
+}
