@@ -139,33 +139,20 @@ function delcallBack() {
 
 //리스트 ->입력화면에 보여주기 
 
-let names2 = document.querySelectorAll('table tbody tr td:nth-child(3)');
-console.log(names2)
-for(let i=0; i<names2.length;i++){
-    names2[i].addEventListener('click',showInfo);
+let names = document.querySelectorAll('table tbody tr td:nth-child(2)');
+console.log(names)
+for(let i=0; i<names.length;i++){
+    names[i].addEventListener('click',showInfo);
 }
 function showInfo(){
    //this 이벤트를 받는 대상(td)
 
 let parent = this.parentNode;
-console.log(parent.childNodes[3].innerText);
+console.log(parent.childNodes[2].innerText);
 
+document.querySelector('input[name="name"]').value = parent.childNodes[1].innerText;
+document.querySelector('input[name="phone"]').value = parent.childNodes[2].innerText;
 document.querySelector('input[name="addr"]').value = parent.childNodes[3].innerText;
+document.querySelector('input[name="email"]').value = parent.childNodes[4].innerText;
 
 }
-
-let names3 = document.querySelectorAll('table tbody tr td:nth-child(4)');
-console.log(names3)
-for(let i=0; i<names3.length;i++){
-    names3[i].addEventListener('click',showInfo);
-}
-function showInfo(){
-   //this 이벤트를 받는 대상(td)
-
-let parent = this.parentNode;
-console.log(parent.childNodes[4].innerText);
-
-document.querySelector('input[name="addr"]').value = parent.childNodes[4].innerText;
-
-}
-
