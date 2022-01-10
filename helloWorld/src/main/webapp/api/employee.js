@@ -154,30 +154,30 @@ delBtn.addEventListener('click', delcallBack);
 function delcallBack() {
 	let chks = document.querySelectorAll('tbody input[type="checkbox"]');
 	for (let i = 0; i < chks.length; i++) {
-		if (chks[i].checked == true) {	
+		if (chks[i].checked == true) {
 			console.log(chks[i].parentNode.nextSibling.ineerText);
 			let del_id = chks[i].parentNode.nextSibling.ineerText
 			//ajax 호출(삭제 서블릿 호출 => 화면에서 삭제);
 			const xhtp = new XMLHttpRequest();
-			xhtp.onload = function(){
+			xhtp.onload = function() {
 				//서버호출 결과 값을 받아오면 실행하는 부분
 				console.log(xhtp.responseText);
 				let result = JSON.parse(xhtp.responseText);
-				if(result.retCode == 'Success') {
+				if (result.retCode == 'Success') {
 					chks[i].parentNode.parentNode.remove();
-				}else{
+				} else {
 					window.alert(result.retVal);
 				}
-				}
-				//화면삭제
-			chks[i].parentNode.parentNode.remove();
 			}
-			xhtp.open('post','../DelEmpServlet');
-			xhtp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-			xhtp.send('emp_id=${del_id}')
-			
+			//화면삭제
+			chks[i].parentNode.parentNode.remove();
 		}
+		xhtp.open('post', '../DelEmpServlet');
+		xhtp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhtp.send('emp_id=${del_id}')
+
 	}
+}
 
 
 
