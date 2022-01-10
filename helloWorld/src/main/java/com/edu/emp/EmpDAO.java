@@ -7,6 +7,21 @@ import java.util.List;
 import com.edu.commcon.DAO;
 
 public class EmpDAO extends DAO{
+	
+	public boolean deleteEmployee(String empId) throws SQLException{
+		String sql = "delete from emp_temp where employee_id=?";
+		connect();
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, empId);
+		
+		int r = psmt.executeUpdate();//처리된 건수 반환
+		if(r>0) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 	//삭제
 	public void deleteEmp(int eid) {
 		String sql = "delete from emp_temp where employee_id =? ";
@@ -41,6 +56,30 @@ public class EmpDAO extends DAO{
 			e.printStackTrace();
 		}
 	}
+	
+	public void insertEmployee(EmployeeVO vo) {
+		String sql = "insert into emp_temp(employee_id,first_name,last_name,salary,email,hire_date,job_id) "
+				+ "values(?,?,?,?,?,?,?)";
+		connect();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getEmployeeId());
+			psmt.setString(2, vo.getFirstName());
+			psmt.setString(3, vo.getLastName());
+			psmt.setInt(4, vo.getSalary());
+			psmt.setString(5, vo.getEmail());
+			psmt.setString(6, vo.getHireDate());
+			psmt.setString(7, "IT_PROG");
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 입력됨");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+	}
+	
 	//한건 입력
 	public void insertEmp(EmployeeVO vo) {
 		String sql = "insert into emp_temp(employee_id, first_name, last_name, email, job_id, salary, hire_date) "
@@ -78,7 +117,7 @@ public class EmpDAO extends DAO{
 				emp.setFirstName(rs.getString("first_name"));
 				emp.setLastName(rs.getString("last_name"));
 				emp.setEmail(rs.getString("email"));
-				emp.setHireDate(rs.getString("hire_date"));
+				emp.setHireDate(rs.getString("hire_date").substring(0,10));
 				emp.setJobId(rs.getString("job_id"));
 				emp.setSalary(rs.getInt("salary"));
 				empList.add(emp);

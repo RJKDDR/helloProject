@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>api/empList.html</title>
+<style>
+        #add{
+            border: 1px solid grey;
+            width: 60%;
+            float: left;
+            margin: 5px;
+            padding : 10px;
+        }
+        .row{
+            margin: 5px 10px;
+        }
+        .row>label {
+            display: inline-block;
+            width: 15%;
+        }
+        .row>input{
+            display: inline-block;
+            width: 75%;
+        }
+        #btn{
+            /* border : 1px solid grey; */
+            margin : 5px;
+            float: left;
+            width: 20%;
+            height: 140px;
+        }
+        #btn>button{
+            margin-top: 20px;
+            width: 100px;
+        }
+        #list{
+            float: left;
+            border: 1px solid grey;
+            height: 450px;
+            width: 93%;
+            margin-left: 5px;
+        }
+        #list table{
+            width: 95%;
+            margin:15px auto;
+        }
+        th,td{
+            padding: 3px 5px;
+            text-align: center;
+        }
+        th:nth-child(5) {
+        width : 190px;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="show">
+		<div id="add">
+			<div class="row">
+				<label for="">사원번호</label> <input type="number" name="eid">
+			</div>
+			<div class="row">
+				<label for="">이름</label> <input type="text" name="fname">
+			</div>
+			<div class="row">
+				<label for="">성씨</label> <input type="text" name="lname">
+			</div>
+			<div class="row">
+				<label for="">입사일자</label> <input type="date" name="hire_date">
+			</div>
+			<div class="row">
+				<label for="">이메일</label> <input type="email" name="email">
+			</div>
+			<div class="row">
+				<label for="">급여</label> <input type="number" name="salary">
+			</div>
+		</div>
+		<div id="btn">
+			<button>등록</button>
+			<button>선택삭제</button>
+		</div>
+		<div id="list"></div>
+	</div>
+	<script src="employee.js"></script>
+	<!--  <script>
+		let xhtp = new XMLHttpRequest();
+		xhtp.onreadystatechange = function() {
+			if (xhtp.readyState == 4 && xhtp.status == 200) {
+				console.log('readystate : ' + xhtp.readyState);
+				console.log('status : ' + xhtp.status);
+				let data = JSON.parse(xhtp.responseText)
+				console.log(data);
+				//showCenterList(data);
+
+			}
+		}
+		xhtp.open('get', '../EmpList.json');
+		xhtp.send();
+	</script>-->
+
+</body>
+
+</html>

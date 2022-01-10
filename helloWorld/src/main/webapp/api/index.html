@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api/index.html</title>
+</head>
+
+<body>
+    <div id="show">
+        <script>
+            //Asy
+            // function makePage(aryData) {
+            //     //[{id : ??, first_name : ??, last_name : ??, email : ??}]
+            //     let ul = document.createElement('ul');
+            //     aryData.forEach(function (item) {
+            //         let li = document.createElement('li');
+            //         let text = document.createTextNode(`${item.id} - ${item.first_name} - ${item.last_name}`);
+            //         li.appendChild(text);
+            //         ul.appendChild(li);
+            //     })
+            //     console.log(ul);
+            //     document.getElementsByTagName('body')[0].appendChild(ul);
+            // }      
+
+            // function makePage(aryData) {
+            //     fields = ['ID', 'FirstNam', 'LastName', 'Email', 'Gender'];
+            //     let tbl = document.createElement('table');
+            //     tbl.setAttribute('border', '1');
+            //     let thd = document.createElement('thead');
+            //     tbl.appendChild(thd);
+            //     let tr = document.createElement('tr');
+            //     thd.appendChild(tr)
+            //     for (let fidld in fields) {
+            //         //[{id : ??, first_name : ??, last_name : ??, email : ??}]
+            //         //->table 형식
+            //         //table > thead, tbody > tr > th, td       
+
+            //         let th = document.createElement('th');
+            //         let text = document.createTextNode(fields[field]);
+            //         th.appendChild(text);
+            //         tr.appendChild(th);
+
+            //     }
+
+
+            //     let tbd = document.createElement('tbody');
+            //     for (let ary of arayData) {
+            //         tr = document.createElement('tr');
+            //         for (let field in ary) {
+            //             let td = document.createElement9('td');
+            //             let text = document.createTextNode(ary[file]);
+            //             th.appendChild(text);
+            //             tr.appendChild(td);
+
+            //         }
+            //         tbd.appendChild(tr);
+            //     }
+            //     tbl.appendChild(tbd);
+            //     console.log(table);
+            //     document.getElementsByTagName('body')[0].appendChild(tbl);
+            // }
+
+
+            //보여중항목 정의
+            const fields = ['id', 'centerName', 'address', 'phoneNumber', 'sido', 'sigungu'];
+
+            function showCenterList(data) {
+                //전체카운트 : data.currentCount : 284
+                //현재페이지 : data.page : 1
+                //전체테이터 : data.data : 284건의 접종센터 정보.
+
+                let table = document.createElement('table');
+                table.setAttribute('border', '1');
+                table.setAttribute('id', 'tbl');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                //table의 하위요소로  thead, tbody 추가.
+                table.append(thead, tbody);
+                //thead 작성.
+                let tr = document.createElement('tr');
+                fields.forEach(function (field) {
+                    let td = document.createElement('th');
+                    let text = document.createTextNode(field.toUpperCase());
+                    td.append(text);
+                    tr.append(td);
+                });
+                thead.append(tr);
+
+                //tbody 작성.
+                data.data.forEach(function (item) {
+                    let tr = document.createElement('tr');
+                    fields.forEach(function (field) {
+                        let td = document.createElement('td');
+                        let text = document.createTextNode(item[field]);
+                        td.append(text);
+                        tr.append(td);
+                    });
+                    thbody.append(tr);
+
+                });
+                document.getElementById('show').append(table);
+            }
+            //Asynchoronous Javascript And Xml (ajax)
+            let url =
+                'https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&returnType=JSON&serviceKey=PhBKMvs8vOAOPcD0ELQr68swBZJliXbBSOzVJzyxwz%2F3lJ2sriUw2jcP3rPsEHRskz6Dh%2Fr%2BrA%2FTbGrA0KB7Fg%3D%3D';
+            let xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    console.log('readystate : ' + xhtp.readyState);
+                    console.log('status : ' + xhtp.status);
+                    let data = JSON.parse(xhtp.responseText)
+                    console.log(data);
+
+                    // makePage(data);
+                    showCenterList(data);
+
+                }
+            }
+            xhtp.open('get', url);
+            xhtp.send();
+        </script>
+    </div>
+</body>
+
+</html>
