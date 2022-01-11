@@ -155,8 +155,8 @@ function delcallBack() {
 	let chks = document.querySelectorAll('tbody input[type="checkbox"]');
 	for (let i = 0; i < chks.length; i++) {
 		if (chks[i].checked == true) {
-			console.log(chks[i].parentNode.nextSibling.ineerText);
-			let del_id = chks[i].parentNode.nextSibling.ineerText
+			console.log(chks[i].parentNode.nextSibling.innerText);
+			let del_id = chks[i].parentNode.nextSibling.innerText;
 			//ajax 호출(삭제 서블릿 호출 => 화면에서 삭제);
 			const xhtp = new XMLHttpRequest();
 			xhtp.onload = function() {
@@ -170,11 +170,11 @@ function delcallBack() {
 				}
 			}
 			//화면삭제
-			chks[i].parentNode.parentNode.remove();
+
+			xhtp.open('post', '../DelEmpServlet');
+			xhtp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhtp.send(`emp_id=${del_id}`);
 		}
-		xhtp.open('post', '../DelEmpServlet');
-		xhtp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhtp.send('emp_id=${del_id}')
 
 	}
 }

@@ -65,7 +65,7 @@
 
 
             //보여중항목 정의
-            const fields = ['id', 'centerName', 'address', 'phoneNumber', 'sido', 'sigungu'];
+            const fields = ['id', 'centerName', 'address', 'phoneNumber', 'sido', 'sigungu', 'map'];
 
             function showCenterList(data) {
                 //전체카운트 : data.currentCount : 284
@@ -94,12 +94,24 @@
                 data.data.forEach(function (item) {
                     let tr = document.createElement('tr');
                     fields.forEach(function (field) {
+                        //map = > link 생성
+                        if(field == 'map') {
+                            let linkTag = document.createElement('a');
+                            linkTag.setAttribute('href', `daum.html?lat=${item.lat}&lng=${item.lng}&facility=${item.facilityName}`);
+                            linkTag.setAttribute('target', '_blank');
+                            linkTag.innerText = item.centerName;
+
+                            let td = document.createElement('td');
+                            td.appendChild(linkTag);
+                            tr.append(td);
+                        } else {
                         let td = document.createElement('td');
                         let text = document.createTextNode(item[field]);
                         td.append(text);
                         tr.append(td);
+                        }
                     });
-                    thbody.append(tr);
+                    tbody.append(tr);
 
                 });
                 document.getElementById('show').append(table);
@@ -113,7 +125,7 @@
                     console.log('readystate : ' + xhtp.readyState);
                     console.log('status : ' + xhtp.status);
                     let data = JSON.parse(xhtp.responseText)
-                    console.log(data);
+                    console.log(data);//{currentCount : 284, data : [{}{}{}], totalCount : 284}
 
                     // makePage(data);
                     showCenterList(data);

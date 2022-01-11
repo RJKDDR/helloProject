@@ -37,7 +37,9 @@ public class DelEmpServlet extends HttpServlet {
 		
 		
 		String delId = request.getParameter("emp_id");
+		System.out.println(delId);
 		String result = "";
+		
 		EmpDAO dao = new EmpDAO();
 		try {
 			if(dao.deleteEmployee(delId)) {
