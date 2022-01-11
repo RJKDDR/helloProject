@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #show {
+            border-top: 3px solid black;
+        }
+
+        #add {
+            /* border: 1px solid grey; */
+            width: 60%;
+            float: left;
+            margin: 5px;
+            padding: 10px;
+        }
+
+        .row {
+            margin: 5px 10px;
+        }
+
+        .row>label {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            background-color: blanchedalmond;
+        }
+
+        .row>input {
+            display: inline-block;
+            width: 55%;
+        }
+
+        #btn {
+            /* border : 1px solid grey; */
+            margin: 5px;
+            float: left;
+            width: 20%;
+            height: 140px;
+        }
+
+        #btn>button {
+            margin-top: 20px;
+            width: 100px;
+        }
+
+        #list {
+            float: left;
+            border: 3px solid grey;
+            height: 450px;
+            width: 93%;
+            margin-left: 5px;
+        }
+
+        #list table {
+            width: 95%;
+            margin: 15px auto;
+        }
+
+        th,
+        td {
+            padding: 3px 5px;
+            text-align: center;
+
+        }
+
+        thead>tr {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+            background-color: pink;
+            border-right: none;
+            border-left: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show">
+        <div id="add">
+            <div class="row">
+                <label for="">도서코드</label> <input type="text" name="bookCode">
+            </div>
+            <div class="row">
+                <label for="">도서명</label> <input type="text" name="bookName">
+            </div>
+            <div class="row">
+                <label for="">저 자</label> <input type="text" name="wirter">
+            </div>
+            <div class="row">
+                <label for="">출판사</label> <input type="text" name="company">
+            </div>
+            <div class="row">
+                <label for="">가격</label> <input type="text" name="price">
+            </div>
+
+        </div>
+        <div id="btn">
+            <button id="save">저장</button>
+            <button id="del">선택삭제</button>
+        </div>
+        <div id="list"></div>
+    </div>
+    <script>
+        const data = [{
+            bookCode: 'P12301285',
+            bookName: '이것이 자바다',
+            wirter: '홍성문',
+            company: '신흥출판사',
+            price: '25000원'
+        }];
+        const fields = ['bookCode', 'cookName', 'wirter', 'company', 'price'];
+
+        function makeHead() {
+            const titles = ['도서 코드', '책 이름', '저 자', '출판사', '가격'];
+            let thd = document.createElement('thead');
+            let tr = document.createElement('tr');
+            let th1 = document.createElement('th');
+            let checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.addEventListener('change', allCheckFnc);
+            th1.appendChild(checkbox);
+            tr.appendChild(th1);
+            titles.forEach(function (field) {
+                let th = document.createElement('th');
+                let text = document.createTextNode(field);
+                th.appendChild(text);
+                tr.appendChild(th);
+            });
+
+            let th2 = document.createElement('th');
+            let text = document.createTextNode('삭제');
+            th2.appendChild(text);
+            tr.appendChild(th2);
+
+            thd.appendChild(tr);
+            return thd;
+
+        }
+
+        function allCheckFnc() {
+            let chks = document.querySelectorAll('tbody input[type="checkbox"]');
+            for (let i = 0; i < chks.length; i++) {
+                chks[i].checked = this.checked;
+            }
+        }
+
+        function makeBody() {
+            let tbd = document.createElement('tbody');
+            data.forEach(function (obj) {
+                tbd.appendChild(makeTr(obj));
+            });
+            return tbd;
+        }
+
+        function makeTr(item) {
+            let tr = document.createElement('tr');
+
+
+            let checkboxTd = document.createElement('td');
+            let checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkboxTd.appendChild(checkbox);
+            tr.appendChild(checkboxTd);
+
+
+
+            for (let field of fields) {
+                let td = document.createElement('td');
+                let text = document.createTextNode(item[field]);
+                td.appendChild(text);
+                tr.appendChild(td);
+            }
+
+            let dbtnTd = document.createElement('td');
+            let dbtn = document.createElement('button');
+            dbtn.innerText = '삭제';
+            dbtn.onclick = function (e) {
+                console.log(e.target);
+                e.target.parentNode.parentNode.remove();
+            }
+
+            dbtnTd.appendChild(dbtn);
+            tr.appendChild(dbtnTd);
+
+            return tr;
+
+
+        }
+        (function drawTable() {
+            let tbl = document.createElement('table');
+            // tbl.setAttribute('border', '1');
+            tbl.appendChild(makeHead());
+            tbl.appendChild(makeBody());
+
+            document.getElementById('list').appendChild(tbl);
+        }());
+
+        let addBtn = document.querySelector('#btn>button');
+        addBtn.addEventListener('click', addcallBack);
+
+        function addcallBack() {
+            let bookCode = document.querySelector('input[name="bookCode"').value;
+            let bookName = document.querySelector('input[name="bookName"').value;
+            let wirter = document.querySelector('input[name="wirter"').value;
+            let company = document.querySelector('input[name="company"').value;
+            let price = document.querySelector('input[name="price"').value;
+
+            let obj = {
+                bookCode: bookCode,
+                bookName: bookName,
+                wirter: wirter,
+                company: company,
+                price: price
+            }
+            let tr = makeTr(obj);
+            document.querySelector('#list>table>tbody').appendChild(tr);
+
+            let inputs = document.getElementsByTagName('input');
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = '';
+            }
+        }
+        let delBtn = document.querySelector('#btn>button:nth-child(2)');
+        delBtn.addEventListener('click', delcallBack);
+
+        function delcallBack() {
+            let chks = document.querySelectorAll('tbody input[type="checkbox"]');
+            for (let i = 0; i < chks.length; i++) {
+                if (chks[i].checked == true) {
+                    chks[i].parentNode.parentNode.remove();
+                }
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
