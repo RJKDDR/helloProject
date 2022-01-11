@@ -6,7 +6,7 @@
                 //현재페이지 : data.page : 1
                 //전체테이터 : data.data : 284건의 접종센터 정보.
 
-                //table 요소가 있으면 삭제.
+                //table 요소가 있으면 삭제. 한 화면에여러개 테이블이 만들어 지지않기 위한 코드
                 if (document.getElementById('tbl')) {
                     document.getElementById('tbl').remove();
                 }
@@ -114,6 +114,7 @@
 
                     pagingList(); //첫번째 페이지 보여주기 위한 코드1
                     //showCenterList(filterAry); //43개 호출
+
                     function pagingList() {
                         //리스트 a에 있는 class를 초기화 
                         let allA = document.querySelectorAll('#page>a');
@@ -134,8 +135,8 @@
                             let endCnt = (page * 10); //index 값= 10 //20
                             return startCnt <= ind && ind < endCnt; //인덱스값 기준으로 0~9까지만 보여줌  //10~19
                         });
+                        showCenterList(pagingAry); //43개 호출
                     }
-                    showCenterList(pagingAry); //43개 호출
                 }
                 //서울특별시 클릭.
                 let firstBtn = document.querySelector('#show>button:nth-child(1)');

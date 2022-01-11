@@ -14,7 +14,7 @@ const data = [{
     addr: '서울 강남 100번지',
     email: 'suga@email.com'
 }];
-
+ 
 function makeHead() {
     const fields = ['Name', 'Phone', 'Addr', 'Email'];
     let thd = document.createElement('thead');
