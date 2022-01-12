@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api/exe.html</title>
+    <style>
+        #show>span {
+            display: inline-block;
+            width : 70px;
+            background-color: yellow;
+            padding: 5px;
+            margin: 3px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var show = document.getElementById('show');
+
+            var data =`Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt odit dicta nihil soluta fugit nam, recusandae officiis non quibusdam vitae ut saepe excepturi fuga perspiciatis debitis voluptas, laboriosam voluptate ab!`;
+            var dataAry = data.split(' ');
+            console.log(dataAry);
+            dataAry.forEach(function(shortWord){
+                var span = document.createElement('span');
+                span.innerText = shortWord;
+                show.appendChild(span);
+            });
+            var delBtn = document.getElementById("searchBtn");
+            delBtn.addEventListener('click', delFnc);
+
+            //버튼 이벤트 등록.
+            var delBtn = document.getElementById("searchBtn");
+
+            //사용자입력 input
+            var inputElem = document.getElementById('inputWord');
+            inputElem.addEventListener('change',delFnc);
+            function delFnc(){
+                //화면에 span 읽어와서
+                var wordAry = document.querySelectorAll('#show>span'); //고민
+                
+                //사용자의 입력값 =>value 속성
+                var searchWord = document.getElementById('inputWord').value;
+
+                wordAry.forEach(function(item){
+                    //값이 같으면 element.remove();
+                    if(searchWord == item.innerText) {
+                        item.remove();
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <input type="text" name = "inputWord" id = "inputWord">
+    <button id = "searchBtn"> 삭제</button>
+    <br>
+    <div id="show"></div>
+    
+</body>
+</html>
