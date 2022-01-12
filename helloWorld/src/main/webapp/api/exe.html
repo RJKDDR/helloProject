@@ -26,11 +26,9 @@
                 span.innerText = shortWord;
                 show.appendChild(span);
             });
-            var delBtn = document.getElementById("searchBtn");
-            delBtn.addEventListener('click', delFnc);
-
             //버튼 이벤트 등록.
             var delBtn = document.getElementById("searchBtn");
+            delBtn.addEventListener('click', delFnc);
 
             //사용자입력 input
             var inputElem = document.getElementById('inputWord');
@@ -49,12 +47,32 @@
                     }
                 });
             }
+
+
+
+            var addBtn = document.getElementById('addBtn');
+            addBtn.addEventListener('click', addFnc);
+            var inputEl = document.getElementById('inputWord');
+            inputEl.addEventListener('click', addFnc);
+            
+            
+            function addFnc(){
+                var wordAry = document.querySelectorAll('#show>span');
+
+                var searchWord = document.getElementById('inputWord').value;
+                wordAry.forEach(function(item){
+                    if(searchWord == item.innerText){
+                        item.addEventListener();
+                    }
+                });
+            }
         });
     </script>
 </head>
 <body>
     <input type="text" name = "inputWord" id = "inputWord">
     <button id = "searchBtn"> 삭제</button>
+    <button id = "addBtn"> 추가</button>
     <br>
     <div id="show"></div>
     
