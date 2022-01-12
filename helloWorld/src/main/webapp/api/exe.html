@@ -51,10 +51,7 @@
 
 
             var addBtn = document.getElementById('addBtn');
-            addBtn.addEventListener('click', addFnc);
-            var inputEl = document.getElementById('inputWord');
-            inputEl.addEventListener('click', addFnc);
-            
+            addBtn.addEventListener('click', addFnc);            
             
             function addFnc(){
                 var wordAry = document.querySelectorAll('#show>span');
@@ -62,7 +59,7 @@
                 var searchWord = document.getElementById('inputWord').value;
                 wordAry.forEach(function(item){
                     if(searchWord == item.innerText){
-                        item.addEventListener();
+                        item();
                     }
                 });
             }

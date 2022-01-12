@@ -119,7 +119,7 @@ function addcallBack() {
 		window.alert('필수값을 입력하세요');
 		return;
 	}
-
+ 
 	const xhtp = new XMLHttpRequest();
 	xhtp.onload = function() {
 		let result = JSON.parse(xhtp.responseText);//JSON-> javascript object 변경.
