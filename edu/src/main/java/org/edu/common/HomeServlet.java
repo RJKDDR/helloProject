@@ -23,6 +23,8 @@ public class HomeServlet extends HttpServlet {
 		list.put("/login.do", new LoginController());
 		list.put("/memberList.do", new MemberListController());
 		list.put("/requestInfo.do", new RequestInfoController());
+		//게시글 관련
+		list.put("/CommentServ.do", new CommentController());
 	}
 
 	@Override
@@ -35,6 +37,11 @@ public class HomeServlet extends HttpServlet {
 		Controller control = list.get(path);
 		
 	//	System.out.print("url : " +url + ", uri:" + uri +", context: " +contextPath + ", path" + path + ", control :" + control);
+//		try {
+//			control.execute(req, resp);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		try {
 			control.execute(req, resp);
 		} catch (Exception e) {
