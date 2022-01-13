@@ -49,7 +49,11 @@
 		//한건 생성
 		function makeCommentView(comment) { //{id:?, name:?, content:?}
 			var div = document.createElement('div');
-
+			div.setAttribute('cid', comment.id);
+			div.setAttribute('cname', comment.name);
+			div.setAttribute('ctent', comment.content);
+			div.setAttribute('id', comment.id);
+			
 			//var strong = document.createElement('strong');
 			//var name = document.createTextNode(comment.name); //수정
 			//var text = document.createTextNode(comment.content); //수정
@@ -61,15 +65,24 @@
 			//div.append(strong, text, input);
 
 			var str = '<strong>' + comment.name + '</strong> ' + comment.content +
-				' <input type="button" value="수정" onclick="viewUpdateForm()">'
+				' <input type="button" value="수정" onclick="viewUpdateForm('+comment.id+')">'
 			div.innerHTML = str;
 
 			return div;
 
 		}
 
-		function viewUpdateForm() {
-
+		function viewUpdateForm(id) {
+			var commentDiv = document.getElementById(id);
+			var updateFormDiv = document.getElementById('commentUpdate');
+			updateFormDiv.style.display ='block';
+			
+			document.updateForm.id.value = commentDiv.getAttribute('cid');
+			document.updateForm.name.value = commentDiv.getAttribute('cname');
+			document.updateForm.content.value = commentDiv.getAttribute('ctent');
+			
+			CommentDiv.after(updateFormDiv);
+			document.getElementById('commentAdd').style.display ='none';
 		}
 
 		//글등록 기능
@@ -130,11 +143,13 @@
 	</div>
 	<!-- 댓글수정 -->
 	<div id="commentUpdate" style="display: none;">
+	<form action="" method="get" name="updateForm">
 		<input type="hidden" name="id">
 		이름 : <input type="text" name="name" size="10"><br>
 		내용 : <textarea name="content" cols="20" crows="2"></textarea>
 		<br> <input type="button" value="변경" onclick="updateComment()">
 		<input type="button" value="취소" onclick="cancelUpdate()">
+		</form>
 	</div>
 </body>
 
