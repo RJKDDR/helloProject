@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h3>Hello,</h3>
+	<a href="comment/comment.html">comment</a>
 </body>
 </html>

@@ -39,21 +39,19 @@
 				commentList.appendChild(commentDiv);
 
 			});
-			//		<div>
-			//		<strong>name</strong> content <input type='button' value='수정' onclick="viewUpdateForm()" >
-			//	</div>
-			//	<div>
-			//		<strong>name</strong> content <input type='button' value='수정' onclick="viewUpdateForm()" >
-			//</div>
+			
 		}
 		//한건 생성
 		function makeCommentView(comment) { //{id:?, name:?, content:?}
 			var div = document.createElement('div');
-			div.setAttribute('cid', comment.id);
-			div.setAttribute('cname', comment.name);
-			div.setAttribute('ctent', comment.content);
+			//div.setAttribute('cid', comment.id);
+			//div.setAttribute('cname', comment.name);
+			//div.setAttribute('ctent', comment.content);
 			div.setAttribute('id', comment.id);
 			
+			div.setAttribute('data-id', comment.id);
+			div.setAttribute('data-name', comment.name);
+			div.setAttribute('data-content', comment.content);
 			//var strong = document.createElement('strong');
 			//var name = document.createTextNode(comment.name); //수정
 			//var text = document.createTextNode(comment.content); //수정
@@ -66,6 +64,7 @@
 
 			var str = '<strong>' + comment.name + '</strong> ' + comment.content +
 				' <input type="button" value="수정" onclick="viewUpdateForm('+comment.id+')">'
+				+' <input type="button" value="삭제" onclick="confirmDeletion('+comment.id+')">';
 			div.innerHTML = str;
 
 			return div;
@@ -73,18 +72,45 @@
 		}
 
 		function viewUpdateForm(id) {
-			var commentDiv = document.getElementById(id);
-			var updateFormDiv = document.getElementById('commentUpdate');
-			updateFormDiv.style.display ='block';
+			var commentDiv = document.getElementById(id);//div 의  id값이 같은 element
+			var updateFormDiv = document.getElementById('commentUpdate');//div
+			updateFormDiv.style.display ='block'; //수정화면 none->block
 			
-			document.updateForm.id.value = commentDiv.getAttribute('cid');
+			/* document.updateForm.id.value = commentDiv.getAttribute('cid');
 			document.updateForm.name.value = commentDiv.getAttribute('cname');
-			document.updateForm.content.value = commentDiv.getAttribute('ctent');
+			document.updateForm.content.value = commentDiv.getAttribute('ctent'); */
 			
-			CommentDiv.after(updateFormDiv);
-			document.getElementById('commentAdd').style.display ='none';
+			document.updateForm.id.value = commentDiv.dataset.id;
+			document.updateForm.name.value = commentDiv.dataset.name;
+			document.updateForm.content.value = commentDiv.dataset.content;
+			
+			commentDiv.after(updateFormDiv); //<div><span></sapn></div>업엔드  <div></div><span></sapn> !!!after 메소드 기억!!! >> commentDiv 뒤에 updateFormDiv를 넣겠다. => <div></div><span></span>
+			document.getElementById('commentAdd').style.display ='none'; //입력화면 숨김
 		}
 
+		function confirmDeletion(id) {
+			//서블릿 -> db삭제 -> 서블릿 -> 화면반영
+			var delAjax = new XMLHttpRequest();
+			delAjax.open('post', '../CommentServ.do');
+			delAjax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			delAjax.send(`cmd=delete&id=${id}`);
+			delAjax.onload = deleteResult;//콜백 호출
+		}
+		//삭제 콜백
+		function deleteResult(e) {
+			console.log(e);
+			var result = JSON.parse(e.target.responseText);
+			if(result.retCode == 'Success'){
+				//화면에서 삭제
+				var commentDiv = document.getElementById(result.retVal);
+				//e.target.parentNode.remove();
+				
+			var commentList = document.getElementById('commentList');
+				commentList.removeChild(commentDiv);
+			}else{
+				//에러발생 메세지
+			}
+		}
 		//글등록 기능
 		function addComment() {
 			console.log(document.forms[0])
@@ -126,12 +152,55 @@
 
 
 		}
+		//수정버튼 클릭시
+		function updateComment(){
+			var id = document.updateForm.id.value;
+			var name = document.updateForm.name.value;
+			var content = document.updateForm.content.value;//updateForm에 있는 content를 읽어 오겠다
+			//수정하는 서블릿 - > DB반영->서블릿->comment.html
+			var updateAjax = new XMLHttpRequest();
+			updateAjax.open('post',  '../CommentServ.do')
+			updateAjax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			updateAjax.send(`cmd=update&name=${name}&content=${content}&id=${id}`);
+			updateAjax.onload = updateResult; //없데이트 콜백함수
+			
+			function updateResult() {
+				console.log(updateAjax.responseText)
+				let result = JSON.parse(updateAjax.responseText);
+				//retCode => Success 화면수정, retCode => Fail 에러가 발생
+				if(result.retCode == 'Success') {
+					var comment = result.retVal;//{id:?,name:?,content:?}
+					var commentDiv = makeCommentView(comment);
+					var oldComment = document.getElementById(comment.id);
+					//변경
+					document.getElementById('commentList').replaceChild(commentDiv, oldComment); //기존 commentDiv를oldComment로 바꾼다는 의미
+					
+					//화면전환
+					document.getElementById('commentUpdate').style.display = 'none';//입력화면 숨김 기능
+					document.getElementById('commentAdd').style.display = 'block';
+				}else{
+					window.alert('에러발생');
+					
+				}
+			}
+		}
+		
+		function cancelUpdate(){
+			//화면전환
+			document.getElementById('commentUpdate').style.display = 'none';
+			document.getElementById('commentAdd').style.display = 'block';
+		}
 	</script>
 </head>
 
 <body>
 	<div id="commentList">
-
+		<!-- <div>
+			//		<strong>name</strong> content <input type='button' value='수정' onclick="viewUpdateForm()" >
+			//	</div>
+			//	<div>
+			//		<strong>name</strong> content <input type='button' value='수정' onclick="viewUpdateForm()" >
+			//</div> -->
 	</div>
 	<!-- 댓글등록 -->
 	<div id="commentAdd">

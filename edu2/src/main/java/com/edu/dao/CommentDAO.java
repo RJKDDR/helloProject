@@ -1,10 +1,13 @@
-package org.edu.comment;
+package com.edu.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.edu.common.DAO;
+import com.edu.common.DAO;
+import com.edu.model.CommentVO;
+
+
 
 public class CommentDAO extends DAO {
 	//글삭제

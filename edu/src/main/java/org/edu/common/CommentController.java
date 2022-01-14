@@ -50,6 +50,42 @@ public class CommentController implements Controller {
 				
 			}
 			out.print(gson.toJson(resultMap));
+		} else if(cmd.equals("update")) {
+			String id = req.getParameter("id");
+			String name = req.getParameter("name");
+			String content = req.getParameter("content");
+			
+			CommentVO vo = new CommentVO();
+			vo.setId(Integer.parseInt(id));
+			vo.setName(name);
+			vo.setContent(content);
+			
+			Map<String, Object> resultMap = new HashMap<String, Object>();
+			if(dao.updateComment(vo)) {
+				resultMap.put("retCode","Success");
+				resultMap.put("retVal", vo);
+							
+			}else {
+				resultMap.put("retCode","Fail");
+				resultMap.put("retVal", "에러발생");	
+				
+			}
+			out.print(gson.toJson(resultMap));
+			
+		} else if(cmd.equals("delete")) {
+			String id = req.getParameter("id");
+			
+			Map<String, String> resultMap = new HashMap<String, String>();
+			if(dao.deleteComment(id)) {
+				resultMap.put("retCode","Success");
+				resultMap.put("retVal", id);
+							
+			}else {
+				resultMap.put("retCode","Fail");
+				resultMap.put("retVal", "에러발생");	
+				
+			}
+			out.print(gson.toJson(resultMap));
 		}
 	}
 
