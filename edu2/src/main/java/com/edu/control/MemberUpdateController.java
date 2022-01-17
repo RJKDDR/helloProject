@@ -10,33 +10,27 @@ import com.edu.common.Controller;
 import com.edu.dao.MemberDAO;
 import com.edu.model.MemberVO;
 
-public class MemberInsertController implements Controller {
+public class MemberUpdateController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		req.setCharacterEncoding("utf-8");
-		resp.setCharacterEncoding("utf-8");
-		
-		//사용자 입력값을 읽고 DB에 반영. 결과를 결과 페이지 전송
-		String id = req.getParameter("id"); //id(parameter이름)=user1(값
-		String passwd = req.getParameter("passwd");
+		// 사용자 입력 정보를 읽어와서 DB반영 결과 :memberResult/memberUpdateOutput.jsp
+		String id = req.getParameter("id");
 		String name = req.getParameter("name");
+		String passwd = req.getParameter("passwd");
 		String mail = req.getParameter("mail");
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
-		vo.setPasswd(passwd);
 		vo.setName(name);
 		vo.setMail(mail);
+		vo.setPasswd(passwd);
 		
 		MemberDAO dao = new MemberDAO();
-		dao.insertMember(vo);
+		dao.updateMember(vo);
 		
-		req.setAttribute("member", vo); //요청정보에 member속성에 
-		
-		
-		req.getRequestDispatcher("memberResult/memberInsertOutput.jsp").forward(req, resp);
+		//처리결과
+		req.getRequestDispatcher("memberResult/memberUpdateOutput.jsp").forward(req, resp);
 	}
 
 }

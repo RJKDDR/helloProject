@@ -10,6 +10,27 @@ import com.edu.model.CommentVO;
 
 
 public class CommentDAO extends DAO {
+	
+	//한건조회
+	public CommentVO selectOne(String id) {
+		String sql = "select * from comments where id=?";
+		connect();
+		CommentVO vo = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo = new CommentVO(rs.getInt("id"),rs.getString("name"),rs.getString("content"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		return vo;
+		
+	}
 	//글삭제
 	public boolean deleteComment(String id) {
 		String sql = "delete from comments where id=?";
