@@ -8,7 +8,7 @@ import com.edu.common.DAO;
 import com.edu.service.BulletinService;
 import com.edu.vo.BulletinVO;
 
-public class BulletinDAO extends DAO implements BulletinService{
+public class BulletinDAO extends DAO implements BulletinService {
 
 	@Override
 	public List<BulletinVO> selectList() {
@@ -17,19 +17,19 @@ public class BulletinDAO extends DAO implements BulletinService{
 		List<BulletinVO> list = new ArrayList<>();
 		try {
 			psmt = conn.prepareStatement(sql);
-			rs=psmt.executeQuery();
-					while(rs.next()) {
-						BulletinVO bulletin = new BulletinVO();
-						bulletin.setBbsId(rs.getInt("bbs_id"));
-						bulletin.setBbsTitle(rs.getString("bbs_title"));
-						bulletin.setBbsContent(rs.getString("bbs_content"));
-						bulletin.setBbsWriter(rs.getString("bbs_writer"));
-						bulletin.setBbsImage(rs.getString("bbs_Image"));
-						bulletin.setBbsCreateDate(rs.getString("bbs_create_date"));
-						bulletin.setBbsHit(rs.getInt("bbs_hit"));
-						list.add(bulletin);
-						
-					}
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				BulletinVO bulletin = new BulletinVO();
+				bulletin.setBbsId(rs.getInt("bbs_id"));
+				bulletin.setBbsTitle(rs.getString("bbs_title"));
+				bulletin.setBbsContent(rs.getString("bbs_content"));
+				bulletin.setBbsWriter(rs.getString("bbs_writer"));
+				bulletin.setBbsImage(rs.getString("bbs_Image"));
+				bulletin.setBbsCreateDate(rs.getString("bbs_create_date"));
+				bulletin.setBbsHit(rs.getInt("bbs_hit"));
+				list.add(bulletin);
+
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -38,8 +38,30 @@ public class BulletinDAO extends DAO implements BulletinService{
 
 	@Override
 	public BulletinVO selectOne(int bbsId) {
-		// TODO Auto-generated method stub
-		return null;
+		connect();
+		String sql = "select * from bbs where bbs_id=? ";
+		BulletinVO bulletin = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bbsId);
+			
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				bulletin = new BulletinVO();
+				bulletin.setBbsId(rs.getInt("bbs_id"));
+				bulletin.setBbsTitle(rs.getString("bbs_title"));
+				bulletin.setBbsContent(rs.getString("bbs_content"));
+				bulletin.setBbsWriter(rs.getString("bbs_writer"));
+				bulletin.setBbsImage(rs.getString("bbs_Image"));
+				bulletin.setBbsCreateDate(rs.getString("bbs_create_date"));
+				bulletin.setBbsHit(rs.getInt("bbs_hit"));
+				
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bulletin;
 	}
 
 	@Override
@@ -51,7 +73,7 @@ public class BulletinDAO extends DAO implements BulletinService{
 			psmt = conn.prepareStatement(sql1);
 			rs = psmt.executeQuery();
 			int seq = 0;
-			if(rs.next()) {
+			if (rs.next()) {
 				seq = rs.getInt(1);
 			}
 			psmt = conn.prepareStatement(sql2);
@@ -62,17 +84,16 @@ public class BulletinDAO extends DAO implements BulletinService{
 			psmt.setString(5, vo.getBbsImage());
 			int r = psmt.executeUpdate();
 			System.out.println(r + "입력");
-			
-			//입력값에 bbs_id 값만 추가해서 반환
+
+			// 입력값에 bbs_id 값만 추가해서 반환
 			vo.setBbsId(seq);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
-		
-		
+
 		return vo;
 	}
 
@@ -87,6 +108,5 @@ public class BulletinDAO extends DAO implements BulletinService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
+
 }
