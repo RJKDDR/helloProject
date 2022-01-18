@@ -18,16 +18,22 @@
 <c:if test="${id eq guest }">
 <p>Guest입니다.</p>
 </c:if>
-
-
-	<%
+	<%-- <%
 	MemberVO member = (MemberVO) session.getAttribute("login");
-	%>
-	<h3> 사용자 이름은 : <%=member.getName() %>입니다!!</h3>
-	<%
+	%> => ${login }으로 표현함 --%>
+	<h3> 사용자 이름은 : ${login.name }입니다!!</h3>
+	
+	<%-- <%
 	List<MemberVO> list = (List<MemberVO>) request.getAttribute("memberList");//속성지정
 	if (list.size() != 0) {
-	%>
+	%> =>${memberList }로 표현함 --%> 
+	
+	<c:choose>
+	<c:when test="${empty memberList }">
+	<h3>회원리스트</h3>
+	<p>조회된 정보가 없습니다</p>
+	</c:when>
+	<c:otherwise>
 	<h3>회원리스트</h3>
 	<table border="1">
 		<thead>
@@ -37,29 +43,21 @@
 				<th>비번</th>
 		</thead>
 		<tbody>
-			<%
-			for (MemberVO vo : list) {
-			%>
+		<!-- for문~ -->
+			<c:forEach var="member" items="${memberList }">
 			<tr>
-				 <td><%=vo.getId()%></td>
-				 <td><%=vo.getName()%></td>
-				 <td><%=vo.getMail()%></td>
-				 <td><%=vo.getPasswd()%></td>
+				 <td>${member.id }</td>
+				 <td>${member.name }</td>
+				 <td>${member.mail }</td>
+				 <td>${member.passwd }</td>
 			</tr>
-			<%
-			}
-			%>
-
+			</c:forEach>
 		</tbody>
 	</table>
-	<%
-	} else {
-	%>
-	<h3>회원리스트</h3>
-	<p>조회된 정보가 없습니다</p>
-	<%
-	}
-	%>
+	</c:otherwise>
+	</c:choose>	
+	
+	
 	<%@include file ="home.jsp" %>
 </body>
 
