@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic_min.html</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        const members = [{
+            fullName: "김남준",
+            age: 29,
+            phone: "010-1994-0912"
+        }, {
+            fullName: "김석진",
+            age: 31,
+            phone: "010-1991-1201"
+        }, {
+            fullName: "민윤기",
+            age: 30,
+            phone: "010-1993-0309"
+        }]
+        //document.addEventListner('DOMContentLoaded', function(){})
+        $(document).ready(function () {
+            let tbl = $('<table id = "tbl">').attr('border', '1');
+            members.forEach(function (item) {
+                let tr = $('<tr>').append(
+                    $('<td>').text(item.fullName),//<td>김남준</td>
+                    $('<td>').text(item.age),//<td>29</td>
+                    $('<td>').text(item.phone),//<td>010~</td>
+                    $('<td>').html($('<button>').text('삭제').click(delFnc)) //<td><button></button></td>
+                );
+                tr.mouseover(mouseOverFnc).mouseout(mouseOutFnc)
+                tbl.append(tr);
+            });
+            console.log(tbl);
+            // $('#show').append(tbl);
+            $('div').eq(1).append(tbl);
+            
+            function delFnc(){
+                console.log('delfn');
+                console.log(this);
+                $(this).parent().parent().remove();//this<td<tr.remove();
+                
+            }
+            
+            function mouseOverFnc(){
+                console.log(this);
+                $(this).css('background-color','yellow');
+            }
+            //마우스 아웃
+            function mouseOutFnc(){
+                console.log(this)
+                $(this).css('background-color','');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="show">1</div>
+    <div id="show">2</div>
+    <div id="show">3</div>
+    <div id="show">4</div>
+</body>
+
+</html>
