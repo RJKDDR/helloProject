@@ -8,6 +8,14 @@ ${bulletin }
 <th>글번호</th>
 <td>${bulletin.bbsId }</td>
 </tr>
-</tbody>
+<tr>
+<th>내용</th>
+<td>${bulletin.bbsId }</td>
+</tr>
+<tr>
+<th>작성자</th>
+<td>${bulletin.bbsId }</td>
+</tr>
+</tbody>   
 
 </table>
