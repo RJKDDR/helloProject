@@ -16,6 +16,8 @@ import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
 import com.edu.web.BulletinSelectController;
 import com.edu.web.BulletinUpdateController;
+import com.edu.web.LoginController;
+import com.edu.web.LoginFormController;
 import com.edu.web.MainController;
 import com.edu.web.NoticeAddController;
 import com.edu.web.NoticeDeleteController;
@@ -23,6 +25,9 @@ import com.edu.web.NoticeFormController;
 import com.edu.web.NoticeListController;
 import com.edu.web.NoticeSelectController;
 import com.edu.web.NoticeUpdateController;
+import com.edu.web.ReplyDeleteController;
+import com.edu.web.ReplyRegisterController;
+import com.edu.web.ReplySelectController;
 
 public class FrontController extends HttpServlet {
 	Map<String, Controller> map = null;
@@ -42,6 +47,11 @@ public class FrontController extends HttpServlet {
 		map.put("/bulletinUpdate.do", new BulletinUpdateController());
 		map.put("/bulletinDelete.do", new BulletinDeleteController());
 		
+		//댓글 컨트롤
+		map.put("/replySelect.do", new ReplySelectController());
+		map.put("/replyRegister.do", new ReplyRegisterController());
+		map.put("/deleteReply.do", new ReplyDeleteController());
+		
 		//공지사항
 		map.put("/noticeList.do", new NoticeListController());
 		map.put("/noticeAdd.do", new NoticeAddController());
@@ -49,6 +59,11 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeUpdate.do", new NoticeUpdateController());
 		map.put("/noticeForm.do", new NoticeFormController());
 		map.put("/noticeDelete.do", new NoticeDeleteController());
+		
+		//회원관련
+		map.put("/loginForm.do", new LoginFormController());
+		map.put("/login.do", new LoginController());
+		map.put("/logOut.do", new LogOutController());
 	}
 
 	@Override

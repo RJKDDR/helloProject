@@ -9,7 +9,7 @@
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input class="form-control" type="text" name="writer"></td>
+				<td><input class="form-control" type="text" name="writer" value="${sessionId }" replyId></td>
 			</tr>
 			<tr>
 				<th>내용</th>

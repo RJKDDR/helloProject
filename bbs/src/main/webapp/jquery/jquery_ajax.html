@@ -35,11 +35,33 @@
 
             function makeTr(obj) {
                 let tr = $('<tr>').attr('id', obj.id);
+                    $(tr).click(function(){
+                        //한건 클릭->각요소를 찾아와서 값을 대입.
+                        console.log($(this).children().eq(0).text());
+                        let id = $(this).children().eq(0).text()
+                        $('#id').val(id);
+
+                        $('#first_name').val($(this).children().eq(1).text()); //이름
+                        $('#last_name').val($(this).children().eq(2).text());//이름
+                        $('#email').val($(this).children().eq(3).text()); //이메일
+                        $('#gender').val($(this).children().eq(4).text());//성별
+                        $('#ip_address').val($(this).children().eq(5).text()); //ip주소
+                    });
                 fields.forEach(function (field) {
                     console.log(field);
                     let td = $('<td>').text(obj[field]);
                     tr.append(td);
                 });
+                    //버튼추가
+                    let btn = $('<button>').text('삭제');
+                        btn.click (function(){
+                            console.log(this)//event에서 this사요오디면 event대상
+                            $(btn).parent().parent().remove()//요소를제거
+                        })
+                    console.log('btn', btn);
+                    let td = $('<td>').html(btn); //<td><button>삭제</button></td>
+                    tr.append(td);
+
                 return tr;
             }
 
@@ -48,32 +70,53 @@
                 dataAry.forEach(function (item) {
                     tbody.append(makeTr(item));
                 })
+
                 return tbody;
             };
             //등록
             // $('#register').click(function(){});
-            $('#register').on('click', function(){
+            $('#register').on('click', function () {
                 let id = $('#id').val();
                 let fn = $('#first_name').val();
                 let ln = $('#last_name').val();
                 let em = $('#email').val();
                 let gn = $('#gender').val();
                 let ia = $('#ip_address').val();
-                if(id == ''|| fn== '' || ln == '' || em== '' || gn == '' || ia == ''){
+                if (id == '' || fn == '' || ln == '' || em == '' || gn == '' || ia == '') {
                     alert('필수값입력');
                     return;
                 }
-                let obj={
-                    id:id,
-                    first_name:fn,
-                    last_name:ln,
-                    email:em,
-                    gender:gn,
-                    ip_address:ia
+                let obj = {
+                    id: id,
+                    first_name: fn,
+                    last_name: ln,
+                    email: em,
+                    gender: gn,
+                    ip_address: ia
                 }
                 let tr = makeTr(obj);
                 $('#show>table>tbody').append(tr);
-            });
+            })
+            //변경
+            $('#modify').on('click', function(){
+                //수정화면-> 리스트결과값에 반영
+                let fn = $('#first_name').val();//입력화면의 first_name의 value;
+                let ln = $('#last_name').val(); //변경한 값을
+                let em = $('#email').val();
+                let gn = $('#gender').val();
+                let ia = $('#ip_address').val();
+
+                let findId = $('#id').val();//리스트중에서 찾을 아이디
+                $(`#${findId}`).children().eq(1).text(fn);
+                $(`#${findId}`).children().eq(2).text(ln);//라스트네임에 넣음
+                $(`#${findId}`).children().eq(3).text(em);
+                $(`#${findId}`).children().eq(4).text(gn);
+                $(`#${findId}`).children().eq(5).text(ia);
+                
+            })
+
+
+
         });
     </script>
 </head>
@@ -82,12 +125,13 @@
     <h3>입력화면</h3>
     <div id="add">
         아이디: <input type="text" id="id"><br>
-        이름:   <input type="text" id="first_name"><br>
-        성씨:   <input type="text" id="last_name"><br>
+        이름: <input type="text" id="first_name"><br>
+        성씨: <input type="text" id="last_name"><br>
         이메일: <input type="text" id="email"><br>
-        성별:   <input type="text" id="gender"><br>
-        IP:     <input type="text" id="ip_address"><br>
+        성별: <input type="text" id="gender"><br>
+        IP: <input type="text" id="ip_address"><br>
         <button id="register">등록</button>
+        <button id="modify">수정</button>
 
     </div>
     <div id="show"></div>
