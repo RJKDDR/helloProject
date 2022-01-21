@@ -90,8 +90,9 @@ div.row {
 </div>
 <script>
 //데이터 한건을 가지고 리스트에 추가
-function attachList(reply){
-	 let div = $('<div>').attr('class','row').attr('id', reply.replyId);
+function attachList(reply){ //reply => id, writer, content
+	 let div = $('<div>').attr('class','row')
+	 .attr({'id':reply.replyId, 'writer':reply.replyWriter, 'content':reply.replyDate});
 	 div.append(
 			 $('<span>').text(reply.replyWriter),//
 			 $('<span>').text(reply.replyContent),//
@@ -101,14 +102,16 @@ function attachList(reply){
 	 $('.reply-list').append(div);	
 }
 function deleteReply(){
-	let delId = $(this).parent().attr('id');
+	let delId = $(this).parent().attr('id');//삭제할 아이디
+	//댓글을 작성한 userId == 삭제할려고 하는 userId
+	let writer = $(this).parent().children().eq(0).text();//글작성자 userId
+	
 	console.log(delId);
 	$.ajax({
 		url:'deleteReply.do',//호출 주소
 		data:{id:delId},
 		dataType:'json',
 		success:function(result){
-			console.log(result)
 			//화면에서 div제거
 			if(result.retCode == 'Success'){
 				$('#'+delId).remove(); //화면에서 삭제처리

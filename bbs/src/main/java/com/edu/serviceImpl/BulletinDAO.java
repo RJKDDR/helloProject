@@ -203,7 +203,7 @@ public class BulletinDAO extends DAO implements BulletinService {
 			psmt.setInt(1, replySeq);
 			psmt.setString(2, vo.getReplyContent());
 			psmt.setString(3, vo.getReplyWriter());
-			psmt.setString(4, vo.getReplyDate());
+			psmt.setString(4, replyDate);
 			psmt.setInt(5, vo.getBbsId());
 			
 			int r =psmt.executeUpdate();
