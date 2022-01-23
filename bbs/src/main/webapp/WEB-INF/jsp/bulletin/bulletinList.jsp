@@ -20,7 +20,7 @@
 			<th>조회수</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody>   
 		<c:forEach var="bulletin" items="${bulletinList }">
 			<tr onclick="formSubmit(${bulletin.bbsId })">
 				<td>${bulletin.bbsId }</td>

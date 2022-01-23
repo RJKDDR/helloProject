@@ -21,7 +21,7 @@
     width : 85px;
     margin: 10px;
     }
-    
+      
  </style>
 </head>
 <body>

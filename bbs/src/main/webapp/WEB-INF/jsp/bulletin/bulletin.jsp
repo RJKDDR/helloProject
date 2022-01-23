@@ -9,7 +9,7 @@
 		document.forms.delFrm.submit();
 	}
 </script>
-<form name="delFrm"
+<form name="delFrm"   
 	action="${pageContext.request.contextPath }/bulletinDelete.do"
 	method="post">
 	<input type="hidden" name="id">

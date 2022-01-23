@@ -33,7 +33,7 @@
     <th>조회수</th>
     <td>${notice.noticeHit }</td>
       </tr>
-  
+    
     <td colspan="2">
     <input type="submit" value="수정">
     <input type="reset" value="초기화">

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
+ 
 <h1 class="mt-4">Simple Sidebar</h1>
 <p>The starting state of the menu will appear collapsed on smaller
 	screens, and will appear non-collapsed on larger screens. When toggled

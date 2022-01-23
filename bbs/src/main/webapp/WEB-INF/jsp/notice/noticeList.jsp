@@ -31,3 +31,4 @@ function formSubmit(id){
 	</tbody>
 </table>
 <a href="${pageContext.request.contextPath }/noticeForm.do">글등록</a>
+  
